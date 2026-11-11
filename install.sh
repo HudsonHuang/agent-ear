@@ -33,13 +33,14 @@ export UV_PYTHON_INSTALL_MIRROR="$PY_MIRROR"
 export HF_ENDPOINT="$HF_MIRROR"
 
 if ! command -v ffmpeg >/dev/null 2>&1 || ! command -v ffprobe >/dev/null 2>&1; then
-  if [[ "$(uname -s)" == "Darwin" ]]; then
-    echo "ffmpeg missing. Install it with: brew install ffmpeg" >&2
+  if [[ "$(uname -s)" == "Darwin" ]] && command -v brew >/dev/null 2>&1; then
+    echo "ffmpeg missing; installing via Homebrew (may take a few minutes)..."
+    brew install ffmpeg
   else
     echo "ffmpeg missing. Install it with: sudo apt install ffmpeg" >&2
+    echo "Re-run this installer after that." >&2
+    exit 2
   fi
-  echo "Re-run this installer after that." >&2
-  exit 2
 fi
 
 echo "installing agent-ear from domestic PyPI..."
@@ -49,6 +50,11 @@ for idx in "$PIP_MIRROR" "$PIP_MIRROR2" "https://pypi.org/simple"; do
   if uv tool install --force --default-index "$idx" agent-ear; then ok=1; break; fi
 done
 [ "$ok" = 1 ] || { echo "uv tool install failed" >&2; exit 1; }
+
+if [ "${AGENT_EAR_SKIP_SETUP:-0}" = "1" ]; then
+  echo "Installed. Run: agent-ear setup"
+  exit 0
+fi
 
 BIN="$(command -v agent-ear || true)"
 [ -n "$BIN" ] || BIN="$HOME/.local/bin/agent-ear"

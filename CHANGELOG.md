@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.10 — 2026-11-12
+
+- Add `npx -y agent-ear@latest setup`: one npm command installs CLI/ffmpeg/Skill, then runs Qwen key setup.
+- npm package ships `install.ps1`/`install.sh` and a `bin` entry; Windows installer can run with `-SkipSetup`.
+
 ## 0.2.9 — 2026-11-12
 
 - Fix Windows checkouts: the bundled PANNs label CSV may be CRLF; normalize before size validation so no Google Storage download is triggered.

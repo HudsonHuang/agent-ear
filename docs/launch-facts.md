@@ -4,7 +4,7 @@
 
 ## 名称与安装
 
-- 当前版本：**0.2.9**（PyPI / GitHub）；npm DSH bundle 最新 **0.2.8**（0.2.9 已提交，等 npm registry 同步）
+- 当前版本：**0.2.10**（PyPI / GitHub）；npm DSH bundle 最新 **0.2.8**（0.2.10 已提交，等 npm registry 同步）
 - 产品 / Skill / PyPI：**agent-ear**
 - CLI：`agent-ear`
 - 安装：

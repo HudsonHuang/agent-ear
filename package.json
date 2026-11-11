@@ -1,7 +1,7 @@
 {
   "name": "agent-ear",
-  "version": "0.2.9",
-  "description": "DeepSeek Harness / Claude skill: give text-only agents an ear for offline audio/video — precise beat grid, event boundaries and word-level timestamps.",
+  "version": "0.2.10",
+  "description": "DeepSeek Harness / Claude skill for timestamped audio: install with npx -y agent-ear@latest setup. Speech, sound events, music/BPM, SRT/EDL export, mixcheck.",
   "type": "module",
   "main": "dsh/index.js",
   "exports": {
@@ -13,7 +13,9 @@
     "cordis.patch.yml",
     "skills",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "install.ps1",
+    "install.sh"
   ],
   "scripts": {
     "test": "node dsh/selfcheck.mjs"
@@ -45,5 +47,8 @@
     "type": "git",
     "url": "git+https://github.com/HudsonHuang/agent-ear.git"
   },
-  "homepage": "https://github.com/HudsonHuang/agent-ear"
+  "homepage": "https://github.com/HudsonHuang/agent-ear",
+  "bin": {
+    "agent-ear": "dsh/cli.js"
+  }
 }

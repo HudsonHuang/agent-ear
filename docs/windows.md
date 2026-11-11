@@ -21,6 +21,14 @@ irm https://gh-proxy.com/https://raw.githubusercontent.com/HudsonHuang/agent-ear
 
 下载默认用 `curl.exe --noproxy "*"`，**即使开了 VPN 也优先走国内源**；失败后才允许系统代理。
 
+## 1.1 npm 一行（已有 Node/DSH 的种子用户）
+
+```powershell
+npx -y agent-ear@latest setup
+```
+
+它会自动调用 `install.ps1` 装 ffmpeg/uv/CLI，然后进入 Qwen Key + Skill 选择。
+
 ## 2. 手动安装
 
 ```powershell
