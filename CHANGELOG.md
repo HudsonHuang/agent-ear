@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 — 2026-11-11
+
+- Document **Qwen Omni API as a hard dependency** for basic/ask/precise/music.
+- Clarify that only `privacy` avoids Qwen; precise also needs Qwen ASR.
+
+
 ## 0.2.0 — 2026-11-11
 
 - Rename public product/Skill to **agent-ear**.

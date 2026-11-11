@@ -11,6 +11,8 @@ description: >-
 
 # agent-ear：给文本 Agent 一副离线耳朵
 
+> **强依赖：Qwen Omni API。** basic/ask/precise/music 都依赖 `qwen3.8-omni-flash`；没有 Key/网络时只有 `privacy` 本地降级可用。precise 还依赖 Qwen ASR。
+
 `agent-ear` 把一段**离线**音频/视频编译成：
 
 - `audio-score.json`：同一时钟上的语音、事件、音乐、关系、置信度；

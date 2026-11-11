@@ -2,6 +2,8 @@
 
 agent-ear 的 CLI 是纯 Python，依赖 ffmpeg 和可选 PyTorch；**Windows 10/11 原生 PowerShell 可用**，不要求 WSL。Windows 与 macOS/Linux 的差异主要是路径、wrapper 和 ffmpeg 安装。
 
+> **强依赖：Qwen Omni API。** basic/ask/precise/music 都需要 `qwen3.8-omni-flash` 的 API Key 和网络；Windows 也一样。`privacy` 是唯一不调用 Qwen 的模式。
+
 ## 1. 前置
 
 ```powershell

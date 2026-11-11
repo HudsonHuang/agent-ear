@@ -15,11 +15,17 @@
 - 支持：Codex、DSH、Claude Code。
 - 仓库：`github.com/HudsonHuang/agent-ear`（发布时确认 owner）。
 
+## 强依赖（必须写）
+
+- **basic / ask / precise / music 都依赖 Qwen Omni 模型 API**（默认 `qwen3.8-omni-flash`）。
+- 没有 Omni Key/网络时，只有 `privacy` 本地降级可用；不要宣传成“完全离线/本地优先”。
+- precise 还额外依赖 Qwen ASR；本地 BEATs/Beat This! 只是精修层，不是 Omni 的替代。
+
 ## 能力边界
 
 - **basic（默认）**：详细转录/描述，0.5–2s 时间戳，能粗剪；需要 Qwen API。
 - **precise**：Qwen ASR 词级 + BEATs 40ms + Beat This!；需要 `agent-ear[local]`。
-- **local-first, cloud optional**：basic 要联网；`privacy` 才不调用 API。
+- **不是 local-first/cloud optional**：basic/ask/precise/music 都依赖 Qwen Omni；只有 `privacy` 不调用 API。
 - 不做：Live Translation、实时流、空间声学、声纹、完整总谱。
 - 40ms 只属于 precise；不要写成 basic 也 40ms。
 
