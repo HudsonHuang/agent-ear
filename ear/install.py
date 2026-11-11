@@ -85,40 +85,120 @@ def _binary() -> str:
     return shutil.which("agent-ear") or shutil.which("ear") or "agent-ear"
 
 
+def _is_path_like(binary: str) -> bool:
+    return Path(binary).is_absolute() or "/" in binary or "\\" in binary
+
+
 def _write_wrappers(dest: Path, binary: str) -> None:
+    """Write platform wrappers that prefer the setup-time CLI path.
+
+    The absolute path keeps the skill working when the CLI is installed but not
+    yet on PATH. If that binary disappears (e.g. ``uv tool uninstall``), the
+    wrapper must fall back to PATH and otherwise explain what is missing instead
+    of failing with a raw ``No such file or directory`` (exit 127).
+    """
     scripts = dest / "scripts"
     scripts.mkdir(parents=True, exist_ok=True)
+    path_like = _is_path_like(binary)
     # Unix
+    unix = [
+        "#!/usr/bin/env bash",
+        "set -euo pipefail",
+        'if [[ -n "${AGENT_EAR_BIN:-}" ]]; then',
+        '  exec "$AGENT_EAR_BIN" "$@"',
+        "fi",
+    ]
+    if path_like:
+        unix += [
+            f'BIN="{binary}"',
+            'if [ -x "$BIN" ]; then',
+            '  exec "$BIN" "$@"',
+            "fi",
+        ]
+    unix += [
+        "if command -v agent-ear >/dev/null 2>&1; then",
+        '  exec agent-ear "$@"',
+        "fi",
+        "cat >&2 <<'MSG'",
+        "agent-ear CLI not found on PATH.",
+        "This skill is a thin wrapper; install the CLI first:",
+        "  uv tool install agent-ear      # recommended",
+        "  pipx install agent-ear",
+        "  python3 -m pip install --user agent-ear",
+        "Then re-run this script (or set AGENT_EAR_BIN to the binary path).",
+        "MSG",
+        "exit 127",
+    ]
     sh = scripts / "agent-ear"
-    sh.write_text(
-        "#!/usr/bin/env bash\n"
-        "set -euo pipefail\n"
-        'if [[ -n "${AGENT_EAR_BIN:-}" ]]; then\n'
-        '  exec "$AGENT_EAR_BIN" "$@"\n'
-        "fi\n"
-        f'exec "{binary}" "$@"\n', encoding="utf-8")
+    sh.write_text("\n".join(unix) + "\n", encoding="utf-8")
     try:
         sh.chmod(0o755)
     except OSError:
         pass
     # Windows cmd
-    (scripts / "agent-ear.cmd").write_text(
-        "@echo off\r\nsetlocal\r\n"
-        'if not "%AGENT_EAR_BIN%"=="" (\r\n'
-        '  "%AGENT_EAR_BIN%" %*\r\n'
-        ") else (\r\n"
-        f'  "{binary}" %*\r\n'
-        ")\r\n"
-        "exit /b %ERRORLEVEL%\r\n", encoding="utf-8")
+    cmd = [
+        "@echo off",
+        "setlocal",
+        'if not "%AGENT_EAR_BIN%"=="" goto use_env',
+    ]
+    if path_like:
+        cmd += [f'if exist "{binary}" goto use_abs']
+    cmd += [
+        "where agent-ear >nul 2>nul",
+        "if errorlevel 1 goto no_cli",
+        "agent-ear %*",
+        "exit /b %ERRORLEVEL%",
+        ":use_env",
+        '"%AGENT_EAR_BIN%" %*',
+        "exit /b %ERRORLEVEL%",
+    ]
+    if path_like:
+        cmd += [
+            ":use_abs",
+            f'"{binary}" %*',
+            "exit /b %ERRORLEVEL%",
+        ]
+    cmd += [
+        ":no_cli",
+        "echo agent-ear CLI not found on PATH. 1>&2",
+        "echo This skill is a thin wrapper; install the CLI first: 1>&2",
+        "echo   uv tool install agent-ear 1>&2",
+        "echo   pipx install agent-ear 1>&2",
+        "echo   python -m pip install --user agent-ear 1>&2",
+        "exit /b 127",
+    ]
+    (scripts / "agent-ear.cmd").write_text("\r\n".join(cmd) + "\r\n", encoding="utf-8")
     # PowerShell
-    (scripts / "agent-ear.ps1").write_text(
-        "$ErrorActionPreference = \"Stop\"\r\n"
-        "if ($env:AGENT_EAR_BIN) {\r\n"
-        "  & $env:AGENT_EAR_BIN @args\r\n"
-        "} else {\r\n"
-        f'  & "{binary}" @args\r\n'
-        "}\r\n"
-        "exit $LASTEXITCODE\r\n", encoding="utf-8")
+    ps = [
+        '$ErrorActionPreference = "Stop"',
+        "if ($env:AGENT_EAR_BIN) {",
+        "  & $env:AGENT_EAR_BIN @args",
+        "  exit $LASTEXITCODE",
+        "}",
+    ]
+    if path_like:
+        ps += [
+            f'$bin = "{binary}"',
+            "if (Test-Path -LiteralPath $bin -PathType Leaf) {",
+            "  & $bin @args",
+            "  exit $LASTEXITCODE",
+            "}",
+        ]
+    ps += [
+        "if (-not (Get-Command agent-ear -ErrorAction SilentlyContinue)) {",
+        "  @(",
+        '    "agent-ear CLI not found on PATH.",',
+        '    "This skill is a thin wrapper; install the CLI first:",',
+        '    "  uv tool install agent-ear",',
+        '    "  pipx install agent-ear",',
+        '    "  python -m pip install --user agent-ear"',
+        "  ) | ForEach-Object { [Console]::Error.WriteLine($_) }",
+        "  exit 127",
+        "}",
+        "& agent-ear @args",
+        "exit $LASTEXITCODE",
+    ]
+    (scripts / "agent-ear.ps1").write_text("\r\n".join(ps) + "\r\n", encoding="utf-8")
 
 
 def install_skill(t: Target, *, scope: str = "user", project_root: Path | None = None,
