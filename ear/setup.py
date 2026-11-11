@@ -26,9 +26,13 @@ def _read_key(args) -> tuple[str, str]:
             raise SystemExit("no key on stdin")
         return key, (args.base_url or q.get("base_url") or config.DEFAULT_BASE)
     if args.non_interactive:
-        if existing and not args.skip_key:
+        if args.skip_key:
+            return "", (args.base_url or q.get("base_url") or config.DEFAULT_BASE)
+        if existing:
             return existing, (args.base_url or q.get("base_url") or config.DEFAULT_BASE)
-        raise SystemExit("--non-interactive needs an existing key or --api-key-stdin")
+        raise SystemExit(
+            "--non-interactive needs an existing key, --api-key-stdin, or --skip-key"
+        )
     if existing:
         _say(f"当前 Key：{config.mask(existing)}（来源 {q.get('source')}）")
         _say("回车保留，或粘贴新 Key（输入不回显）。")
@@ -100,23 +104,25 @@ def run(args) -> int:
 
     key, base = _read_key(args)
     if not key:
-        return 2
-    if not args.skip_api_check:
-        _say("检查 Key ...")
-        check = config.check_qwen(key, base)
-        if not check.get("ok"):
-            _say(f"Key 检查失败（{check.get('status') or check.get('error')}）。"
-                 "请确认 Key、base URL 与模型权限。")
-            if not args.non_interactive:
-                if input("仍然保存并继续？[y/N] ").strip().lower() != "y":
-                    return 3
-            elif not args.force:
-                return 3
-    if args.dry_run:
-        _say(f"[dry-run] would write config {config.config_path()}")
+        _say("跳过 Key 配置（--skip-key）。稍后可运行 `agent-ear setup` 补上，"
+             "或设置 DASHSCOPE_API_KEY。")
     else:
-        path = config.save_qwen(key, base)
-        _say(f"配置已写入 {path}（权限 0600）")
+        if not args.skip_api_check:
+            _say("检查 Key ...")
+            check = config.check_qwen(key, base)
+            if not check.get("ok"):
+                _say(f"Key 检查失败（{check.get('status') or check.get('error')}）。"
+                     "请确认 Key、base URL 与模型权限。")
+                if not args.non_interactive:
+                    if input("仍然保存并继续？[y/N] ").strip().lower() != "y":
+                        return 3
+                elif not args.force:
+                    return 3
+        if args.dry_run:
+            _say(f"[dry-run] would write config {config.config_path()}")
+        else:
+            path = config.save_qwen(key, base)
+            _say(f"配置已写入 {path}（权限 0600）")
 
     targets = _choose_targets(args)
     for t in targets:

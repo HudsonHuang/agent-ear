@@ -169,12 +169,50 @@ def uninstall_skill(t: Target, *, scope: str = "user", project_root: Path | None
     return {"target": t.name, "path": str(dest), "removed": True}
 
 
-def list_skills(*, scope: str = "user", project_root: Path | None = None) -> list[dict[str, Any]]:
+def skill_health(*, installed: bool, wrapper_ok: bool, cli_present: bool) -> str:
+    """Classify an installed skill by whether it can actually run.
+
+    A skill directory can be present while still being unusable: the shipped
+    scripts/agent-ear is a thin wrapper that execs the ``agent-ear`` CLI, and
+    skill-only installs (``npx skills add``, manual clone) do not install it.
+    """
+    if not installed:
+        return "missing"
+    if not wrapper_ok:
+        return "broken"
+    if not cli_present:
+        return "no-cli"
+    return "ok"
+
+
+HEALTH_LABEL = {
+    "ok": "OK",
+    "missing": "-",
+    "broken": "BROKEN (scripts/agent-ear 缺失或不可执行)",
+    "no-cli": "NO-CLI (先装 CLI： uv tool install agent-ear)",
+}
+
+
+def list_skills(*, scope: str = "user", project_root: Path | None = None,
+                cli_present: bool | None = None) -> list[dict[str, Any]]:
+    if cli_present is None:
+        cli_present = shutil.which("agent-ear") is not None
     out = []
     for name in TARGETS:
         t = target(name)
         dest = skill_dest(t, scope, project_root)
-        row: dict[str, Any] = {"target": t.name, "path": str(dest), "installed": dest.is_dir()}
+        installed = dest.is_dir()
+        wrapper = dest / "scripts" / "agent-ear"
+        wrapper_ok = wrapper.is_file() and os.access(wrapper, os.X_OK)
+        row: dict[str, Any] = {
+            "target": t.name,
+            "path": str(dest),
+            "installed": installed,
+            "wrapper_ok": wrapper_ok,
+            "cli_present": cli_present,
+            "health": skill_health(installed=installed, wrapper_ok=wrapper_ok,
+                                   cli_present=cli_present),
+        }
         marker = dest / MARKER
         if marker.is_file():
             try:
