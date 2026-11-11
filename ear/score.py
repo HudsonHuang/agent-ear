@@ -242,7 +242,8 @@ def apply_beats(score: dict[str, Any], bt: dict[str, Any], duration_ms: int) -> 
              "description": ""}
         tracks.append(t)
     t.update({
-        "bpm": bt.get("bpm"), "beats_ms": bt.get("beats_ms") or [],
+        # Keep Omni's estimate when the beat tracker returns no tempo.
+        "bpm": bt.get("bpm") or t.get("bpm"), "beats_ms": bt.get("beats_ms") or [],
         "downbeats_ms": bt.get("downbeats_ms") or [],
         "beat_positions": bt.get("beat_positions") or [],
         "quality": bt.get("quality"), "provider": bt.get("provider"),

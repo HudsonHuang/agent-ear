@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- 修复 `setup --api-key-stdin` 在 Windows PowerShell 5.1 下的 BOM 问题：管道传入的 Key 可能带 `U+FEFF`（以及零宽空格等复制残留），现在会先清理再校验/保存。
+- 修复 `setup --api-key-stdin` 校验失败后仍调用 `input()` 的问题：stdin 已被 Key 占用时会抛 `EOFError`；现在直接返回 3，不交互。
+- 修复 beat tracker 返回空 BPM 时覆盖 Omni BPM 的问题：保留已有估算值，避免 precise/music 的 BPM 从数值退化为 `null`。
+
 ## 0.2.3 — 2026-11-11
 
 - 修复 `agent-ear setup` 安装 skill 时重写 wrapper、却丢掉「CLI not found」提示的问题：0.2.2 只修了 clone/npx 直接使用的包内 wrapper，setup 生成的绝对路径版本仍会在 CLI 消失时裸失败。现在生成的 `.sh` / `.cmd` / `.ps1` 先试安装时的绝对路径，再回退 PATH，最终打印安装指引并以 127 退出。

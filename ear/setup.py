@@ -17,11 +17,21 @@ def _say(msg: str = "") -> None:
     print(msg, flush=True)
 
 
+# PowerShell 5.1 prepends U+FEFF when piping a string to a native process.
+# Strip it (and other common zero-width copy artifacts) before the key becomes
+# an HTTP header value, where latin-1 encoding would raise UnicodeEncodeError.
+_KEY_JUNK = str.maketrans("", "", "\ufeff\u200b\u200c\u200d")
+
+
+def _clean_key(raw: str) -> str:
+    return (raw or "").translate(_KEY_JUNK).strip()
+
+
 def _read_key(args) -> tuple[str, str]:
     q = config.get_qwen()
-    existing = q.get("api_key") or ""
+    existing = _clean_key(q.get("api_key") or "")
     if args.api_key_stdin:
-        key = sys.stdin.readline().strip()
+        key = _clean_key(sys.stdin.readline())
         if not key:
             raise SystemExit("no key on stdin")
         return key, (args.base_url or q.get("base_url") or config.DEFAULT_BASE)
@@ -39,7 +49,7 @@ def _read_key(args) -> tuple[str, str]:
     else:
         _say("需要阿里云百炼 / DashScope 的 Qwen API Key。")
         _say("获取：https://bailian.console.aliyun.com/  → API-KEY")
-    key = getpass.getpass("Qwen API Key: ").strip()
+    key = _clean_key(getpass.getpass("Qwen API Key: "))
     key = key or existing
     if not key:
         raise SystemExit("未提供 Key；可稍后运行 `agent-ear setup`")
@@ -113,7 +123,9 @@ def run(args) -> int:
             if not check.get("ok"):
                 _say(f"Key 检查失败（{check.get('status') or check.get('error')}）。"
                      "请确认 Key、base URL 与模型权限。")
-                if not args.non_interactive:
+                # --api-key-stdin has already consumed stdin; prompting here
+                # would raise EOFError instead of returning a useful status.
+                if not args.non_interactive and not args.api_key_stdin:
                     if input("仍然保存并继续？[y/N] ").strip().lower() != "y":
                         return 3
                 elif not args.force:
