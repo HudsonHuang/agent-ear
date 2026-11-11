@@ -207,9 +207,14 @@ def ensure_panns_labels() -> Path:
     if _valid(dst, spec):
         return dst
     # Labels are tiny and stable; ship them so basic/local never touches Google.
-    if BUNDLED_LABELS.is_file() and _valid(BUNDLED_LABELS, spec):
-        dst.write_bytes(BUNDLED_LABELS.read_bytes())
-        return dst
+    if BUNDLED_LABELS.is_file():
+        # Git on Windows may check the CSV out with CRLF even though the file is
+        # logically LF; normalize before comparing/writing so a checkout does
+        # not trigger a Google Storage download.
+        data = BUNDLED_LABELS.read_bytes().replace(b"\r\n", b"\n")
+        if len(data) == spec.size:
+            dst.write_bytes(data)
+            return dst
     src = ensure_model("panns_labels")
     assert src is not None
     dst.write_bytes(src.read_bytes())

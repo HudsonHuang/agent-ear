@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.9 — 2026-11-12
+
+- Fix Windows checkouts: the bundled PANNs label CSV may be CRLF; normalize before size validation so no Google Storage download is triggered.
+
 ## 0.2.8 — 2026-11-12
 
 - Domestic mirrors (`hf-mirror.com`, `gh-proxy.com`, Aliyun/Tsinghua/UStC) bypass `HTTPS_PROXY` by default; explicit `EAR_DOWNLOAD_PROXY` still wins.

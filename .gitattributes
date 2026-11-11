@@ -1,0 +1,2 @@
+# Keep the bundled PANNs label CSV byte-stable across Windows/macOS checkouts.
+*.csv text eol=lf

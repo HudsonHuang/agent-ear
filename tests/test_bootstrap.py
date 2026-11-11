@@ -12,7 +12,8 @@ def test_hf_endpoint_override(monkeypatch):
 def test_bundled_panns_labels_are_complete():
     p = models.BUNDLED_LABELS
     assert p.is_file()
-    assert p.stat().st_size == models.MODELS["panns_labels"].size
+    data = p.read_bytes().replace(b"\r\n", b"\n")
+    assert len(data) == models.MODELS["panns_labels"].size
 
 
 def test_psed_has_china_fallback():
