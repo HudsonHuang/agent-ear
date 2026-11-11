@@ -136,7 +136,8 @@ if (-not $SkipSetup) {
 Write-Step "verify"
 & $agent doctor --json
 if ($LASTEXITCODE -ne 0) { Write-Host "doctor returned non-zero; inspect output above" -ForegroundColor Yellow }
-$skill = Join-Path $env:USERPROFILE ".dsh\skills\agent-ear\SKILL.md"
+$dshHome = if ($env:DSH_HOME) { $env:DSH_HOME } else { Join-Path $env:USERPROFILE ".dsh" }
+$skill = Join-Path $dshHome "skills\agent-ear\SKILL.md"
 if (Test-Path $skill) { Write-Host "DSH skill: $skill" -ForegroundColor Green }
 else { Write-Host "DSH skill not found at $skill" -ForegroundColor Yellow }
 
