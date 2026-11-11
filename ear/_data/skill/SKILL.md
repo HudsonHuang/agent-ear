@@ -46,12 +46,14 @@ scripts\agent-ear.cmd doctor --json
 
 ```bash
 agent-ear setup                 # 交互式：Qwen Key + 选择 Codex/DSH/Claude
+agent-ear setup --install-ffmpeg # Windows：自动下载本地 ffmpeg/ffprobe
+agent-ear setup --download-models # 可选：并行预下载 precise 模型
 agent-ear doctor                # 依赖/配置/Skill 检查
 agent-ear setup --target codex  # 只装 Codex Skill
 ```
 
 `agent-ear setup` 会把音频发送到阿里云 Qwen 的隐私/费用提示说清楚；
-`privacy` 模式不调用任何 API。
+`privacy` 模式不调用任何 API。基础模式不下载模型；模型走 `hf-mirror.com`/`gh-proxy.com`，只在 precise/events/beat 真正需要时下载。
 
 ## 三种运行方式
 
