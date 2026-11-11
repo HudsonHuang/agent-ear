@@ -1,0 +1,1198 @@
+{
+  "schema": "ear.score/1",
+  "source": {
+    "path": "sample60.wav",
+    "sha256": "example",
+    "duration_ms": 60000,
+    "fps": null,
+    "pts_offset_ms": 0,
+    "trimmed_to_ms": null
+  },
+  "capabilities": {
+    "omni": "qwen3.8-omni-flash",
+    "speech": "omni",
+    "events": "omni",
+    "music": "omni",
+    "fusion": "rules-v1",
+    "mode": "basic"
+  },
+  "global": {
+    "summary": "Two Japanese speakers engage in a lighthearted conversation where one does a self-introduction impression of the other, leading to mutual laughter and discussion about whether the imitation was accurate. They reference a previous stream where the impression was noticed by the streamer, and joke about how the voice suddenly got lower during the imitation.",
+    "scene": "unknown",
+    "mood_curve": [],
+    "mode": "basic",
+    "duration_ms": 60000,
+    "speech_ratio": 0.7167,
+    "music_ratio": 1.0,
+    "event_ratio": 0.2583,
+    "speakers": 2,
+    "languages": [],
+    "top_sounds": [
+      {
+        "start_ms": 7000,
+        "end_ms": 10500,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0001",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 14500,
+        "end_ms": 17500,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0002",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 21500,
+        "end_ms": 23000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0003",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 29500,
+        "end_ms": 33500,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0004",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 49000,
+        "end_ms": 51000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0005",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 57000,
+        "end_ms": 58500,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0006",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      }
+    ]
+  },
+  "speech": {
+    "segments": [
+      {
+        "start_ms": 0,
+        "end_ms": 1000,
+        "speaker": "S1",
+        "text": "自己紹介か",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0001"
+      },
+      {
+        "start_ms": 1500,
+        "end_ms": 2500,
+        "speaker": "S2",
+        "text": "自己紹介",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0002"
+      },
+      {
+        "start_ms": 3000,
+        "end_ms": 4500,
+        "speaker": "S1",
+        "text": "若町アロルです。はい。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0003"
+      },
+      {
+        "start_ms": 5000,
+        "end_ms": 6500,
+        "speaker": "S2",
+        "text": "はい、戦国ゆのです。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0004"
+      },
+      {
+        "start_ms": 7000,
+        "end_ms": 8500,
+        "speaker": "S1",
+        "text": "真似しないでよ！",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0005"
+      },
+      {
+        "start_ms": 11000,
+        "end_ms": 12500,
+        "speaker": "S2",
+        "text": "今最後ちょっと真似してたでしょ。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0006"
+      },
+      {
+        "start_ms": 13000,
+        "end_ms": 14000,
+        "speaker": "S1",
+        "text": "ですって。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0007"
+      },
+      {
+        "start_ms": 14500,
+        "end_ms": 15500,
+        "speaker": "S2",
+        "text": "です。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0008"
+      },
+      {
+        "start_ms": 18500,
+        "end_ms": 21500,
+        "speaker": "S1",
+        "text": "今日は、あの、似てるだって。今の。似てた？",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0009"
+      },
+      {
+        "start_ms": 23500,
+        "end_ms": 27000,
+        "speaker": "S2",
+        "text": "いや、配信のね、枠のね主にね、ちょっとな。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0010"
+      },
+      {
+        "start_ms": 28000,
+        "end_ms": 29000,
+        "speaker": "S1",
+        "text": "あ、言ってくれたの？",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0011"
+      },
+      {
+        "start_ms": 29000,
+        "end_ms": 32500,
+        "speaker": "S2",
+        "text": "そうそう。そっちにね。出した方がいいかなって。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0012"
+      },
+      {
+        "start_ms": 33500,
+        "end_ms": 34500,
+        "speaker": "S1",
+        "text": "気遣いだったんだ。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0013"
+      },
+      {
+        "start_ms": 35000,
+        "end_ms": 38000,
+        "speaker": "S1",
+        "text": "え、僕はどうだった？この前の真似。いたでしょ。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0014"
+      },
+      {
+        "start_ms": 38000,
+        "end_ms": 40000,
+        "speaker": "S2",
+        "text": "あ、似てない似てない。二度とやらないで。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0015"
+      },
+      {
+        "start_ms": 40000,
+        "end_ms": 42500,
+        "speaker": "S1",
+        "text": "え、なんで？なんで？",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0016"
+      },
+      {
+        "start_ms": 43000,
+        "end_ms": 48500,
+        "speaker": "S2",
+        "text": "いやなんか聞いててさ、突然声低くなったなって思ったの。そしたら私の真似だった。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0017"
+      },
+      {
+        "start_ms": 48500,
+        "end_ms": 49500,
+        "speaker": "S1",
+        "text": "嘘だよ。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0018"
+      },
+      {
+        "start_ms": 51000,
+        "end_ms": 53000,
+        "speaker": "S2",
+        "text": "マジかと思って笑い転げたよね。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0019"
+      },
+      {
+        "start_ms": 53500,
+        "end_ms": 54500,
+        "speaker": "S1",
+        "text": "あ、笑い転げた？",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0020"
+      },
+      {
+        "start_ms": 54500,
+        "end_ms": 55000,
+        "speaker": "S2",
+        "text": "うん。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0021"
+      },
+      {
+        "start_ms": 55000,
+        "end_ms": 57500,
+        "speaker": "S1",
+        "text": "あ、ならよかった。全然似てないって言ってたから。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0022"
+      },
+      {
+        "start_ms": 58000,
+        "end_ms": 59000,
+        "speaker": "S2",
+        "text": "似てないよ。",
+        "lang": "",
+        "conf": null,
+        "words": [],
+        "source": "omni",
+        "id": "sp_0023"
+      }
+    ],
+    "turns": [
+      {
+        "speaker": "S1",
+        "start_ms": 0,
+        "end_ms": 1000,
+        "text": "自己紹介か"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 1500,
+        "end_ms": 2500,
+        "text": "自己紹介"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 3000,
+        "end_ms": 4500,
+        "text": "若町アロルです。はい。"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 5000,
+        "end_ms": 6500,
+        "text": "はい、戦国ゆのです。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 7000,
+        "end_ms": 8500,
+        "text": "真似しないでよ！"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 11000,
+        "end_ms": 12500,
+        "text": "今最後ちょっと真似してたでしょ。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 13000,
+        "end_ms": 14000,
+        "text": "ですって。"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 14500,
+        "end_ms": 15500,
+        "text": "です。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 18500,
+        "end_ms": 21500,
+        "text": "今日は、あの、似てるだって。今の。似てた？"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 23500,
+        "end_ms": 27000,
+        "text": "いや、配信のね、枠のね主にね、ちょっとな。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 28000,
+        "end_ms": 29000,
+        "text": "あ、言ってくれたの？"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 29000,
+        "end_ms": 32500,
+        "text": "そうそう。そっちにね。出した方がいいかなって。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 33500,
+        "end_ms": 38000,
+        "text": "気遣いだったんだ。 え、僕はどうだった？この前の真似。いたでしょ。"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 38000,
+        "end_ms": 40000,
+        "text": "あ、似てない似てない。二度とやらないで。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 40000,
+        "end_ms": 42500,
+        "text": "え、なんで？なんで？"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 43000,
+        "end_ms": 48500,
+        "text": "いやなんか聞いててさ、突然声低くなったなって思ったの。そしたら私の真似だった。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 48500,
+        "end_ms": 49500,
+        "text": "嘘だよ。"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 51000,
+        "end_ms": 53000,
+        "text": "マジかと思って笑い転げたよね。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 53500,
+        "end_ms": 54500,
+        "text": "あ、笑い転げた？"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 54500,
+        "end_ms": 55000,
+        "text": "うん。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 55000,
+        "end_ms": 57500,
+        "text": "あ、ならよかった。全然似てないって言ってたから。"
+      },
+      {
+        "speaker": "S2",
+        "start_ms": 58000,
+        "end_ms": 59000,
+        "text": "似てないよ。"
+      }
+    ],
+    "non_speech_vocal": [
+      {
+        "start_ms": 7000,
+        "end_ms": 10500,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0001",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 14500,
+        "end_ms": 17500,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0002",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 21500,
+        "end_ms": 23000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0003",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 29500,
+        "end_ms": 33500,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0004",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 49000,
+        "end_ms": 51000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0005",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 57000,
+        "end_ms": 58500,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0006",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      }
+    ]
+  },
+  "music": {
+    "tracks": [
+      {
+        "id": "mu_0001",
+        "start_ms": 0,
+        "end_ms": 60000,
+        "bpm": 140,
+        "beats_ms": [],
+        "downbeats_ms": [],
+        "beat_positions": [],
+        "sections": [],
+        "genre": null,
+        "mood": null,
+        "instruments": [],
+        "vocals": null,
+        "quality": "omni",
+        "description": "Upbeat electronic/chiptune background music with a playful, energetic mood, featuring synthesized melodies and a steady beat typical of Japanese streaming content"
+      }
+    ],
+    "lyrics": []
+  },
+  "events": [
+    {
+      "start_ms": 7000,
+      "end_ms": 10500,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0001",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 14500,
+      "end_ms": 17500,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0002",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 21500,
+      "end_ms": 23000,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0003",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 29500,
+      "end_ms": 33500,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0004",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 49000,
+      "end_ms": 51000,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0005",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 57000,
+      "end_ms": 58500,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0006",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    }
+  ],
+  "relations": [
+    {
+      "type": "after",
+      "from": "ev_0001",
+      "to": "sp_0004",
+      "gap_ms": 500,
+      "conf": 0.85
+    },
+    {
+      "type": "after",
+      "from": "ev_0002",
+      "to": "sp_0007",
+      "gap_ms": 500,
+      "conf": 0.85
+    },
+    {
+      "type": "after",
+      "from": "ev_0003",
+      "to": "sp_0009",
+      "gap_ms": 0,
+      "conf": 0.85
+    },
+    {
+      "type": "after",
+      "from": "ev_0004",
+      "to": "sp_0011",
+      "gap_ms": 500,
+      "conf": 0.85
+    },
+    {
+      "type": "after",
+      "from": "ev_0005",
+      "to": "sp_0017",
+      "gap_ms": 500,
+      "conf": 0.85
+    }
+  ],
+  "timeline": [
+    {
+      "start_ms": 0,
+      "end_ms": 1000,
+      "kind": "speech",
+      "text": "自己紹介か",
+      "refs": [
+        "sp_0001"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 1000,
+      "end_ms": 1500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 1500,
+      "end_ms": 2500,
+      "kind": "speech",
+      "text": "自己紹介",
+      "refs": [
+        "sp_0002"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 2500,
+      "end_ms": 3000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 3000,
+      "end_ms": 4500,
+      "kind": "speech",
+      "text": "若町アロルです。はい。",
+      "refs": [
+        "sp_0003"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 4500,
+      "end_ms": 5000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 5000,
+      "end_ms": 6500,
+      "kind": "speech",
+      "text": "はい、戦国ゆのです。",
+      "refs": [
+        "sp_0004"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 6500,
+      "end_ms": 7000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 7000,
+      "end_ms": 8500,
+      "kind": "speech",
+      "text": "真似しないでよ！（同时：笑声）",
+      "refs": [
+        "sp_0005",
+        "ev_0001"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 8500,
+      "end_ms": 10500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0001"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 10500,
+      "end_ms": 11000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 11000,
+      "end_ms": 12500,
+      "kind": "speech",
+      "text": "今最後ちょっと真似してたでしょ。",
+      "refs": [
+        "sp_0006"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 12500,
+      "end_ms": 13000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 13000,
+      "end_ms": 14000,
+      "kind": "speech",
+      "text": "ですって。",
+      "refs": [
+        "sp_0007"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 14000,
+      "end_ms": 14500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 14500,
+      "end_ms": 15500,
+      "kind": "speech",
+      "text": "です。（同时：笑声）",
+      "refs": [
+        "sp_0008",
+        "ev_0002"
+      ],
+      "speaker": "S2",
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 15500,
+      "end_ms": 17500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0002"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 17500,
+      "end_ms": 18500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 18500,
+      "end_ms": 21500,
+      "kind": "speech",
+      "text": "今日は、あの、似てるだって。今の。似てた？",
+      "refs": [
+        "sp_0009"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 21500,
+      "end_ms": 23000,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0003"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 23000,
+      "end_ms": 23500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 23500,
+      "end_ms": 27000,
+      "kind": "speech",
+      "text": "いや、配信のね、枠のね主にね、ちょっとな。",
+      "refs": [
+        "sp_0010"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 27000,
+      "end_ms": 28000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 28000,
+      "end_ms": 29000,
+      "kind": "speech",
+      "text": "あ、言ってくれたの？",
+      "refs": [
+        "sp_0011"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 29000,
+      "end_ms": 29500,
+      "kind": "speech",
+      "text": "そうそう。そっちにね。出した方がいいかなって。",
+      "refs": [
+        "sp_0012"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 29500,
+      "end_ms": 32500,
+      "kind": "speech",
+      "text": "そうそう。そっちにね。出した方がいいかなって。（同时：笑声）",
+      "refs": [
+        "sp_0012",
+        "ev_0004"
+      ],
+      "speaker": "S2",
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 32500,
+      "end_ms": 33500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0004"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 33500,
+      "end_ms": 34500,
+      "kind": "speech",
+      "text": "気遣いだったんだ。",
+      "refs": [
+        "sp_0013"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 34500,
+      "end_ms": 35000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 35000,
+      "end_ms": 38000,
+      "kind": "speech",
+      "text": "え、僕はどうだった？この前の真似。いたでしょ。",
+      "refs": [
+        "sp_0014"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 38000,
+      "end_ms": 40000,
+      "kind": "speech",
+      "text": "あ、似てない似てない。二度とやらないで。",
+      "refs": [
+        "sp_0015"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 40000,
+      "end_ms": 42500,
+      "kind": "speech",
+      "text": "え、なんで？なんで？",
+      "refs": [
+        "sp_0016"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 42500,
+      "end_ms": 43000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 43000,
+      "end_ms": 48500,
+      "kind": "speech",
+      "text": "いやなんか聞いててさ、突然声低くなったなって思ったの。そしたら私の真似だった。",
+      "refs": [
+        "sp_0017"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 48500,
+      "end_ms": 49000,
+      "kind": "speech",
+      "text": "嘘だよ。",
+      "refs": [
+        "sp_0018"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 49000,
+      "end_ms": 49500,
+      "kind": "speech",
+      "text": "嘘だよ。（同时：笑声）",
+      "refs": [
+        "sp_0018",
+        "ev_0005"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 49500,
+      "end_ms": 51000,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0005"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 51000,
+      "end_ms": 53000,
+      "kind": "speech",
+      "text": "マジかと思って笑い転げたよね。",
+      "refs": [
+        "sp_0019"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 53000,
+      "end_ms": 53500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 53500,
+      "end_ms": 54500,
+      "kind": "speech",
+      "text": "あ、笑い転げた？",
+      "refs": [
+        "sp_0020"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 54500,
+      "end_ms": 55000,
+      "kind": "speech",
+      "text": "うん。",
+      "refs": [
+        "sp_0021"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 55000,
+      "end_ms": 57000,
+      "kind": "speech",
+      "text": "あ、ならよかった。全然似てないって言ってたから。",
+      "refs": [
+        "sp_0022"
+      ],
+      "speaker": "S1"
+    },
+    {
+      "start_ms": 57000,
+      "end_ms": 57500,
+      "kind": "speech",
+      "text": "あ、ならよかった。全然似てないって言ってたから。（同时：笑声）",
+      "refs": [
+        "sp_0022",
+        "ev_0006"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 57500,
+      "end_ms": 58000,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0006"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 58000,
+      "end_ms": 58500,
+      "kind": "speech",
+      "text": "似てないよ。（同时：笑声）",
+      "refs": [
+        "sp_0023",
+        "ev_0006"
+      ],
+      "speaker": "S2",
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 58500,
+      "end_ms": 59000,
+      "kind": "speech",
+      "text": "似てないよ。",
+      "refs": [
+        "sp_0023"
+      ],
+      "speaker": "S2"
+    },
+    {
+      "start_ms": 59000,
+      "end_ms": 60000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    }
+  ],
+  "views": {
+    "one_line": "时长 1.0 分钟；23 段语音 / 2 位说话人；音乐 140 BPM；主要声音：笑声。",
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 60000,
+        "title": "自己紹介か"
+      }
+    ],
+    "timeline_10s": [
+      "00:00.00–00:10.00 [人声] 自己紹介か / 自己紹介 / 若町アロルです。はい。 / はい、戦国ゆのです。 / 真似しないでよ！（同时：笑声）（同时：笑声）",
+      "00:10.00–00:20.00 [人声] 今最後ちょっと真似してたでしょ。 / ですって。 / です。（同时：笑声） / 今日は、あの、似てるだって。今の。似てた？（同时：笑声）",
+      "00:20.00–00:30.00 [人声] 今日は、あの、似てるだって。今の。似てた？ / いや、配信のね、枠のね主にね、ちょっとな。 / あ、言ってくれたの？ / そうそう。そっちにね。出した方がいいかなって。 / そうそう。そっちにね。出した方がいいかなって。（同时：笑声）（同时：笑声）",
+      "00:30.00–00:40.00 [人声] そうそう。そっちにね。出した方がいいかなって。（同时：笑声） / 気遣いだったんだ。 / え、僕はどうだった？この前の真似。いたでしょ。 / あ、似てない似てない。二度とやらないで。（同时：笑声）",
+      "00:40.00–00:50.00 [人声] え、なんで？なんで？ / いやなんか聞いててさ、突然声低くなったなって思ったの。そしたら私の真似だった。 / 嘘だよ。 / 嘘だよ。（同时：笑声）（同时：笑声）",
+      "00:50.00–01:00.00 [人声] マジかと思って笑い転げたよね。 / あ、笑い転げた？ / うん。 / あ、ならよかった。全然似てないって言ってたから。 / あ、ならよかった。全然似てないって言ってたから。（同时：笑声） / 似てないよ。（同时：笑声） / 似てないよ。（同时：笑声）"
+    ]
+  },
+  "warnings": [
+    "Omni timestamps are coarse (0.5–2s); use precise mode for word/beat timing",
+    "file <90s: speaker labels may collapse; treat as anonymous"
+  ],
+  "provenance": {
+    "tool_version": "0.2.0",
+    "elapsed_s": 16.51
+  },
+  "intent": {
+    "requested": "",
+    "skipped": []
+  }
+}

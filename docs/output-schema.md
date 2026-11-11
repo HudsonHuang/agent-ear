@@ -13,6 +13,8 @@ Schema：`schema/audio-score.schema.json`，当前 `schema: "ear.score/1"`。
 
 ### 顶层
 
+当前 schema 已收口：顶层与核心对象都 `additionalProperties: false`；`global.top_sounds` 同时兼容 Omni 的 event 对象和本地 AED 的 `{label, score}` 标签对象。Golden examples：`schema/examples/{basic,precise,events}.json`。
+
 ```json
 {
   "schema": "ear.score/1",
@@ -22,10 +24,13 @@ Schema：`schema/audio-score.schema.json`，当前 `schema: "ear.score/1"`。
     "speech": "omni | qwen-asr | null",
     "events": "omni | omni+refined | null",
     "music": "omni | beat_this-small0 | null",
+    "aed": "pretrainedsed-beats-strong",
+    "vad": "silero-vad",
     "mode": "basic | precise | music | privacy"
   },
   "intent": {"requested": ["transcript", "events"], "skipped": ["beat"]},
-  "global": {"summary": "...", "speakers": 2, "speech_ratio": 0.8, "music_ratio": 0.2},
+  "global": {"summary": "...", "speakers": 2, "speech_ratio": 0.8, "music_ratio": 0.2,
+             "duration_ms": 60000, "mode": "basic", "top_sounds": []},
   "speech": {"segments": [], "turns": [], "omni_transcript": []},
   "music": {"tracks": []},
   "events": [],
@@ -33,7 +38,10 @@ Schema：`schema/audio-score.schema.json`，当前 `schema: "ear.score/1"`。
   "timeline": [],
   "views": {"one_line": "...", "chapters": [], "timeline_10s": []},
   "warnings": [],
-  "provenance": {}
+  "provenance": {"tool_version": "0.2.0", "elapsed_s": 16.5,
+                 "omni": {"usage": {}, "wall_s": 16.1, "chunks": 1,
+                          "profile": "full", "targets": []},
+                 "probe": {}}
 }
 ```
 

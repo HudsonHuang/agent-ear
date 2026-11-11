@@ -177,4 +177,5 @@ uv pip install --python .venv/bin/python -e ".[dev,local]"
 - [事件 refine](docs/refine-eval.md)
 - [AED 选型与敞口](docs/aed-selection.md)
 - [Roadmap](docs/roadmap.md)
+- [Schema 示例](schema/examples/)
 - [Skill 源文件](skills/agent-ear/SKILL.md)

@@ -1,0 +1,3383 @@
+{
+  "schema": "ear.score/1",
+  "source": {
+    "path": "sample60.wav",
+    "sha256": "example",
+    "duration_ms": 60000,
+    "fps": null,
+    "pts_offset_ms": 0,
+    "trimmed_to_ms": null
+  },
+  "capabilities": {
+    "omni": "qwen3.8-omni-flash",
+    "speech": "qwen-asr",
+    "events": "omni",
+    "music": "beat_this-small0",
+    "fusion": "rules-v1",
+    "mode": "precise",
+    "aed": "pretrainedsed-beats-strong"
+  },
+  "global": {
+    "summary": "Two speakers engage in a lighthearted conversation about self-introductions and voice impressions. They joke about imitating each other's speech patterns, with one speaker noting that the other's impression sounded like a sudden drop in pitch. The tone is playful and filled with laughter throughout, set against a backdrop of upbeat electronic music.",
+    "scene": "unknown",
+    "mood_curve": [],
+    "mode": "precise",
+    "duration_ms": 60000,
+    "speech_ratio": 0.6527,
+    "music_ratio": 1.0,
+    "event_ratio": 0.26,
+    "speakers": 2,
+    "languages": [
+      "ja"
+    ],
+    "top_sounds": [
+      {
+        "start_ms": 7240,
+        "end_ms": 7960,
+        "label": "Laughter",
+        "conf": 0.581,
+        "salience": 0.759,
+        "source": "omni",
+        "precision": "refined-40ms",
+        "id": "ev_0001",
+        "omni_label": "laughter",
+        "label_zh": "笑声",
+        "omni_start_ms": 7000,
+        "omni_end_ms": 9000,
+        "refined_by": "pretrainedsed-beats-strong"
+      },
+      {
+        "start_ms": 8880,
+        "end_ms": 11200,
+        "label": "Laughter",
+        "conf": 0.628,
+        "salience": 0.759,
+        "source": "omni",
+        "precision": "refined-40ms",
+        "id": "ev_0002",
+        "omni_label": "laughter",
+        "label_zh": "笑声",
+        "omni_start_ms": 9000,
+        "omni_end_ms": 11000,
+        "refined_by": "pretrainedsed-beats-strong"
+      },
+      {
+        "start_ms": 19840,
+        "end_ms": 20000,
+        "label": "Laughter",
+        "conf": 0.501,
+        "salience": 0.759,
+        "source": "omni",
+        "precision": "refined-40ms",
+        "id": "ev_0004",
+        "omni_label": "laughter",
+        "label_zh": "笑声",
+        "omni_start_ms": 18000,
+        "omni_end_ms": 20000,
+        "refined_by": "pretrainedsed-beats-strong"
+      },
+      {
+        "start_ms": 21280,
+        "end_ms": 23680,
+        "label": "Laughter",
+        "conf": 0.463,
+        "salience": 0.759,
+        "source": "omni",
+        "precision": "refined-40ms",
+        "id": "ev_0005",
+        "omni_label": "laughter",
+        "label_zh": "笑声",
+        "omni_start_ms": 22000,
+        "omni_end_ms": 24000,
+        "refined_by": "pretrainedsed-beats-strong"
+      },
+      {
+        "start_ms": 13000,
+        "end_ms": 15000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0003",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 25000,
+        "end_ms": 27000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0006",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 38000,
+        "end_ms": 40000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0007",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 43000,
+        "end_ms": 45000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0008",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 45000,
+        "end_ms": 47000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0009",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      }
+    ]
+  },
+  "speech": {
+    "segments": [
+      {
+        "start_ms": 120,
+        "end_ms": 1080,
+        "speaker": "S0",
+        "text": "自己紹介か。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 120,
+            "d_ms": 280,
+            "w": "自己",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 400,
+            "d_ms": 400,
+            "w": "紹介",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 800,
+            "d_ms": 280,
+            "w": "か",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0001",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 1640,
+        "end_ms": 1720,
+        "speaker": "S0",
+        "text": "はい。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 1640,
+            "d_ms": 80,
+            "w": "はい",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0002",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 1840,
+        "end_ms": 2800,
+        "speaker": "S1",
+        "text": "自己紹介。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 1840,
+            "d_ms": 320,
+            "w": "自己",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 2160,
+            "d_ms": 640,
+            "w": "紹介",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0003",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 3080,
+        "end_ms": 4440,
+        "speaker": "S0",
+        "text": "若松アロルです。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 3080,
+            "d_ms": 240,
+            "w": "若",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 3320,
+            "d_ms": 280,
+            "w": "松",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 3600,
+            "d_ms": 120,
+            "w": "ア",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 3720,
+            "d_ms": 120,
+            "w": "ロ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 3840,
+            "d_ms": 160,
+            "w": "ル",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 4000,
+            "d_ms": 440,
+            "w": "です",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0004",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 4800,
+        "end_ms": 5040,
+        "speaker": "S1",
+        "text": "はい。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 4800,
+            "d_ms": 240,
+            "w": "はい",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0005",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 5320,
+        "end_ms": 5640,
+        "speaker": "S1",
+        "text": "はい。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 5320,
+            "d_ms": 320,
+            "w": "はい",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0006",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 5960,
+        "end_ms": 7160,
+        "speaker": "S1",
+        "text": "全国ユーノです。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 5960,
+            "d_ms": 440,
+            "w": "全国",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 6400,
+            "d_ms": 200,
+            "w": "ユー",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 6600,
+            "d_ms": 120,
+            "w": "ノ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 6720,
+            "d_ms": 440,
+            "w": "です",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0007",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 8040,
+        "end_ms": 8960,
+        "speaker": "S0",
+        "text": "割りしないでよ。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 8040,
+            "d_ms": 240,
+            "w": "割り",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 8280,
+            "d_ms": 440,
+            "w": "しないで",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 8720,
+            "d_ms": 240,
+            "w": "よ",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0008",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 11440,
+        "end_ms": 12280,
+        "speaker": "S0",
+        "text": "割りしてやろうと思って。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 11440,
+            "d_ms": 240,
+            "w": "割り",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 11680,
+            "d_ms": 200,
+            "w": "して",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 11880,
+            "d_ms": 80,
+            "w": "や",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 11960,
+            "d_ms": 120,
+            "w": "ろう",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 12080,
+            "d_ms": 200,
+            "w": "と思って",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0009",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 12320,
+        "end_ms": 13680,
+        "speaker": "S0",
+        "text": "今最後ちょっと割りしてたでしょ。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 12320,
+            "d_ms": 160,
+            "w": "今",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 12480,
+            "d_ms": 240,
+            "w": "最後",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 12720,
+            "d_ms": 240,
+            "w": "ちょっと",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 12960,
+            "d_ms": 240,
+            "w": "割り",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 13200,
+            "d_ms": 240,
+            "w": "してた",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 13440,
+            "d_ms": 240,
+            "w": "でしょ",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0010",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 15000,
+        "end_ms": 15600,
+        "speaker": "S0",
+        "text": "です。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 15000,
+            "d_ms": 600,
+            "w": "です",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0011",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 17800,
+        "end_ms": 18160,
+        "speaker": "S0",
+        "text": "うん。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 17800,
+            "d_ms": 120,
+            "w": "う",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 17920,
+            "d_ms": 240,
+            "w": "ん",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0012",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 18840,
+        "end_ms": 21320,
+        "speaker": "S0",
+        "text": "今日は、あの、似てるだって。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 18840,
+            "d_ms": 640,
+            "w": "今日は",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 19880,
+            "d_ms": 440,
+            "w": "あの",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 20520,
+            "d_ms": 160,
+            "w": "似",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 20680,
+            "d_ms": 320,
+            "w": "てる",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 21000,
+            "d_ms": 320,
+            "w": "だって",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0013",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 21680,
+        "end_ms": 22040,
+        "speaker": "S0",
+        "text": "今の。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 21680,
+            "d_ms": 360,
+            "w": "今の",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0014",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 22240,
+        "end_ms": 22960,
+        "speaker": "S0",
+        "text": "似てた。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 22240,
+            "d_ms": 120,
+            "w": "似",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 22360,
+            "d_ms": 240,
+            "w": "て",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 22600,
+            "d_ms": 360,
+            "w": "た",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0015",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 23840,
+        "end_ms": 25240,
+        "speaker": "S1",
+        "text": "いや、配信のね。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 23840,
+            "d_ms": 400,
+            "w": "いや",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 24400,
+            "d_ms": 360,
+            "w": "配信",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 24760,
+            "d_ms": 160,
+            "w": "の",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 24920,
+            "d_ms": 320,
+            "w": "ね",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0016",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 25920,
+        "end_ms": 28440,
+        "speaker": "S1",
+        "text": "わ、枠のね、主にね、ちょっとな。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 25920,
+            "d_ms": 120,
+            "w": "わ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 26160,
+            "d_ms": 280,
+            "w": "枠",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 26440,
+            "d_ms": 120,
+            "w": "の",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 26560,
+            "d_ms": 120,
+            "w": "ね",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 26760,
+            "d_ms": 400,
+            "w": "主に",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 27160,
+            "d_ms": 160,
+            "w": "ね",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 28040,
+            "d_ms": 80,
+            "w": "ちょ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 28120,
+            "d_ms": 40,
+            "w": "っ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 28160,
+            "d_ms": 280,
+            "w": "とな",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0017",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 28520,
+        "end_ms": 29240,
+        "speaker": "S0",
+        "text": "譲ってくれたの。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 28520,
+            "d_ms": 80,
+            "w": "譲",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 28600,
+            "d_ms": 280,
+            "w": "ってく",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 28880,
+            "d_ms": 240,
+            "w": "れた",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 29120,
+            "d_ms": 120,
+            "w": "の",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0018",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 29400,
+        "end_ms": 30080,
+        "speaker": "S0",
+        "text": "そう、そう。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 29400,
+            "d_ms": 160,
+            "w": "そう",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 29680,
+            "d_ms": 400,
+            "w": "そう",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0019",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 30240,
+        "end_ms": 31000,
+        "speaker": "S1",
+        "text": "そっちにね。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 30240,
+            "d_ms": 80,
+            "w": "そ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 30320,
+            "d_ms": 280,
+            "w": "っち",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 30600,
+            "d_ms": 120,
+            "w": "に",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 30720,
+            "d_ms": 280,
+            "w": "ね",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0020",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 31800,
+        "end_ms": 33040,
+        "speaker": "S0",
+        "text": "譲った方がいいかなって。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 31800,
+            "d_ms": 200,
+            "w": "譲",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 32000,
+            "d_ms": 120,
+            "w": "った",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 32120,
+            "d_ms": 320,
+            "w": "方がいい",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 32440,
+            "d_ms": 240,
+            "w": "かな",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 32680,
+            "d_ms": 360,
+            "w": "って",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0021",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 34000,
+        "end_ms": 35120,
+        "speaker": "S0",
+        "text": "気遣いだったんだ。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 34000,
+            "d_ms": 120,
+            "w": "気",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 34120,
+            "d_ms": 240,
+            "w": "遣",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 34360,
+            "d_ms": 80,
+            "w": "い",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 34440,
+            "d_ms": 280,
+            "w": "だった",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 34720,
+            "d_ms": 400,
+            "w": "んだ",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0022",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 35600,
+        "end_ms": 36680,
+        "speaker": "S0",
+        "text": "え、僕もどうだった。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 35600,
+            "d_ms": 120,
+            "w": "え",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 35760,
+            "d_ms": 240,
+            "w": "僕",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 36000,
+            "d_ms": 240,
+            "w": "も",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 36240,
+            "d_ms": 160,
+            "w": "どう",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 36400,
+            "d_ms": 280,
+            "w": "だった",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0023",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 36760,
+        "end_ms": 37920,
+        "speaker": "S0",
+        "text": "この前の真似。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 36760,
+            "d_ms": 240,
+            "w": "この",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 37000,
+            "d_ms": 560,
+            "w": "前の",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 37560,
+            "d_ms": 120,
+            "w": "真",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 37680,
+            "d_ms": 240,
+            "w": "似",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0024",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 38160,
+        "end_ms": 38560,
+        "speaker": "S1",
+        "text": "いたでしょ。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 38160,
+            "d_ms": 280,
+            "w": "いた",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 38440,
+            "d_ms": 120,
+            "w": "でしょ",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0025",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 38680,
+        "end_ms": 39440,
+        "speaker": "S1",
+        "text": "あ、似てない、似てない。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 38680,
+            "d_ms": 80,
+            "w": "あ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 38800,
+            "d_ms": 120,
+            "w": "似",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 38920,
+            "d_ms": 80,
+            "w": "て",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 39000,
+            "d_ms": 120,
+            "w": "ない",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 39160,
+            "d_ms": 120,
+            "w": "似",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 39280,
+            "d_ms": 80,
+            "w": "て",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 39360,
+            "d_ms": 80,
+            "w": "ない",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0026",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 39800,
+        "end_ms": 40560,
+        "speaker": "S1",
+        "text": "二度とやらないで。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 39800,
+            "d_ms": 200,
+            "w": "二度",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 40000,
+            "d_ms": 160,
+            "w": "と",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 40160,
+            "d_ms": 80,
+            "w": "や",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 40240,
+            "d_ms": 240,
+            "w": "らない",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 40480,
+            "d_ms": 80,
+            "w": "で",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0027",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 40680,
+        "end_ms": 40840,
+        "speaker": "S1",
+        "text": "え.",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 40680,
+            "d_ms": 160,
+            "w": "え",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0028",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 41000,
+        "end_ms": 41800,
+        "speaker": "S0",
+        "text": "なんで。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 41000,
+            "d_ms": 800,
+            "w": "なんで",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0029",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 42200,
+        "end_ms": 43120,
+        "speaker": "S0",
+        "text": "なんで。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 42200,
+            "d_ms": 920,
+            "w": "なんで",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0030",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 43440,
+        "end_ms": 46960,
+        "speaker": "S1",
+        "text": "いや、なんか聞いててさ、突然声低くなったなって思ったの。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 43440,
+            "d_ms": 160,
+            "w": "いや",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 43680,
+            "d_ms": 320,
+            "w": "なんか",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 44000,
+            "d_ms": 360,
+            "w": "聞いて",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 44360,
+            "d_ms": 160,
+            "w": "て",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 44520,
+            "d_ms": 240,
+            "w": "さ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 44960,
+            "d_ms": 400,
+            "w": "突然",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 45360,
+            "d_ms": 200,
+            "w": "声",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 45560,
+            "d_ms": 200,
+            "w": "低",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 45760,
+            "d_ms": 360,
+            "w": "くなった",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 46120,
+            "d_ms": 320,
+            "w": "なって",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 46440,
+            "d_ms": 400,
+            "w": "思った",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 46840,
+            "d_ms": 120,
+            "w": "の",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0031",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 47440,
+        "end_ms": 48880,
+        "speaker": "S0",
+        "text": "そしたら私の真似だった。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 47440,
+            "d_ms": 40,
+            "w": "そ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 47480,
+            "d_ms": 520,
+            "w": "したら",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 48000,
+            "d_ms": 280,
+            "w": "私の",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 48280,
+            "d_ms": 80,
+            "w": "真",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 48360,
+            "d_ms": 120,
+            "w": "似",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 48480,
+            "d_ms": 400,
+            "w": "だった",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0032",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 49160,
+        "end_ms": 50160,
+        "speaker": "S0",
+        "text": "そうだよ。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 49160,
+            "d_ms": 440,
+            "w": "そうだ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 49600,
+            "d_ms": 560,
+            "w": "よ",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0033",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 51690,
+        "end_ms": 53410,
+        "speaker": "S1",
+        "text": "マジかと思って笑い転げたよね。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 51690,
+            "d_ms": 240,
+            "w": "マジ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 51930,
+            "d_ms": 160,
+            "w": "か",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 52090,
+            "d_ms": 320,
+            "w": "と思って",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 52410,
+            "d_ms": 320,
+            "w": "笑い",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 52730,
+            "d_ms": 120,
+            "w": "転",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 52850,
+            "d_ms": 240,
+            "w": "げた",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 53090,
+            "d_ms": 320,
+            "w": "よね",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0034",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 53690,
+        "end_ms": 54770,
+        "speaker": "S0",
+        "text": "あ、笑い転げてた。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 53690,
+            "d_ms": 40,
+            "w": "あ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 53810,
+            "d_ms": 360,
+            "w": "笑い",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 54170,
+            "d_ms": 120,
+            "w": "転",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 54290,
+            "d_ms": 240,
+            "w": "げて",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 54530,
+            "d_ms": 240,
+            "w": "た",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0035",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 55010,
+        "end_ms": 55170,
+        "speaker": "S0",
+        "text": "うん。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 55010,
+            "d_ms": 80,
+            "w": "う",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 55090,
+            "d_ms": 80,
+            "w": "ん",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0036",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 55250,
+        "end_ms": 56050,
+        "speaker": "S0",
+        "text": "あ、ならよかった。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 55250,
+            "d_ms": 80,
+            "w": "あ",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 55410,
+            "d_ms": 160,
+            "w": "なら",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 55570,
+            "d_ms": 480,
+            "w": "よかった",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0037",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 56250,
+        "end_ms": 57730,
+        "speaker": "S0",
+        "text": "全然似てないって言ってたから。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 56250,
+            "d_ms": 240,
+            "w": "全然",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 56490,
+            "d_ms": 120,
+            "w": "似",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 56610,
+            "d_ms": 120,
+            "w": "て",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 56730,
+            "d_ms": 280,
+            "w": "ない",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 57010,
+            "d_ms": 80,
+            "w": "って",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 57090,
+            "d_ms": 240,
+            "w": "言って",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 57330,
+            "d_ms": 160,
+            "w": "た",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 57490,
+            "d_ms": 240,
+            "w": "から",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0038",
+        "source": "qwen-asr"
+      },
+      {
+        "start_ms": 58570,
+        "end_ms": 59290,
+        "speaker": "S1",
+        "text": "似てないよ。",
+        "lang": "ja",
+        "conf": null,
+        "words": [
+          {
+            "t_ms": 58570,
+            "d_ms": 160,
+            "w": "似",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 58730,
+            "d_ms": 120,
+            "w": "て",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 58850,
+            "d_ms": 240,
+            "w": "ない",
+            "conf": 1.0
+          },
+          {
+            "t_ms": 59090,
+            "d_ms": 200,
+            "w": "よ",
+            "conf": 1.0
+          }
+        ],
+        "id": "sp_0039",
+        "source": "qwen-asr"
+      }
+    ],
+    "turns": [
+      {
+        "speaker": "S0",
+        "start_ms": 120,
+        "end_ms": 1720,
+        "text": "自己紹介か。 はい。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 1840,
+        "end_ms": 2800,
+        "text": "自己紹介。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 3080,
+        "end_ms": 4440,
+        "text": "若松アロルです。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 4800,
+        "end_ms": 7160,
+        "text": "はい。 はい。 全国ユーノです。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 8040,
+        "end_ms": 8960,
+        "text": "割りしないでよ。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 11440,
+        "end_ms": 13680,
+        "text": "割りしてやろうと思って。 今最後ちょっと割りしてたでしょ。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 15000,
+        "end_ms": 15600,
+        "text": "です。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 17800,
+        "end_ms": 18160,
+        "text": "うん。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 18840,
+        "end_ms": 22960,
+        "text": "今日は、あの、似てるだって。 今の。 似てた。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 23840,
+        "end_ms": 25240,
+        "text": "いや、配信のね。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 25920,
+        "end_ms": 28440,
+        "text": "わ、枠のね、主にね、ちょっとな。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 28520,
+        "end_ms": 30080,
+        "text": "譲ってくれたの。 そう、そう。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 30240,
+        "end_ms": 31000,
+        "text": "そっちにね。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 31800,
+        "end_ms": 33040,
+        "text": "譲った方がいいかなって。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 34000,
+        "end_ms": 37920,
+        "text": "気遣いだったんだ。 え、僕もどうだった。 この前の真似。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 38160,
+        "end_ms": 40840,
+        "text": "いたでしょ。 あ、似てない、似てない。 二度とやらないで。 え."
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 41000,
+        "end_ms": 43120,
+        "text": "なんで。 なんで。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 43440,
+        "end_ms": 46960,
+        "text": "いや、なんか聞いててさ、突然声低くなったなって思ったの。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 47440,
+        "end_ms": 50160,
+        "text": "そしたら私の真似だった。 そうだよ。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 51690,
+        "end_ms": 53410,
+        "text": "マジかと思って笑い転げたよね。"
+      },
+      {
+        "speaker": "S0",
+        "start_ms": 53690,
+        "end_ms": 57730,
+        "text": "あ、笑い転げてた。 うん。 あ、ならよかった。 全然似てないって言ってたから。"
+      },
+      {
+        "speaker": "S1",
+        "start_ms": 58570,
+        "end_ms": 59290,
+        "text": "似てないよ。"
+      }
+    ],
+    "non_speech_vocal": [
+      {
+        "start_ms": 7240,
+        "end_ms": 7960,
+        "label": "Laughter",
+        "conf": 0.581,
+        "salience": 0.759,
+        "source": "omni",
+        "precision": "refined-40ms",
+        "id": "ev_0001",
+        "omni_label": "laughter",
+        "label_zh": "笑声",
+        "omni_start_ms": 7000,
+        "omni_end_ms": 9000,
+        "refined_by": "pretrainedsed-beats-strong"
+      },
+      {
+        "start_ms": 8880,
+        "end_ms": 11200,
+        "label": "Laughter",
+        "conf": 0.628,
+        "salience": 0.759,
+        "source": "omni",
+        "precision": "refined-40ms",
+        "id": "ev_0002",
+        "omni_label": "laughter",
+        "label_zh": "笑声",
+        "omni_start_ms": 9000,
+        "omni_end_ms": 11000,
+        "refined_by": "pretrainedsed-beats-strong"
+      },
+      {
+        "start_ms": 13000,
+        "end_ms": 15000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0003",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 19840,
+        "end_ms": 20000,
+        "label": "Laughter",
+        "conf": 0.501,
+        "salience": 0.759,
+        "source": "omni",
+        "precision": "refined-40ms",
+        "id": "ev_0004",
+        "omni_label": "laughter",
+        "label_zh": "笑声",
+        "omni_start_ms": 18000,
+        "omni_end_ms": 20000,
+        "refined_by": "pretrainedsed-beats-strong"
+      },
+      {
+        "start_ms": 21280,
+        "end_ms": 23680,
+        "label": "Laughter",
+        "conf": 0.463,
+        "salience": 0.759,
+        "source": "omni",
+        "precision": "refined-40ms",
+        "id": "ev_0005",
+        "omni_label": "laughter",
+        "label_zh": "笑声",
+        "omni_start_ms": 22000,
+        "omni_end_ms": 24000,
+        "refined_by": "pretrainedsed-beats-strong"
+      },
+      {
+        "start_ms": 25000,
+        "end_ms": 27000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0006",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 38000,
+        "end_ms": 40000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0007",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 43000,
+        "end_ms": 45000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0008",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 45000,
+        "end_ms": 47000,
+        "label": "Laughter",
+        "conf": 0.7,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0009",
+        "omni_label": "laughter",
+        "label_zh": "笑声"
+      }
+    ],
+    "omni_transcript": [
+      {
+        "start_ms": 120,
+        "end_ms": 1080,
+        "text": "自己紹介か。"
+      },
+      {
+        "start_ms": 1640,
+        "end_ms": 1720,
+        "text": "はい。"
+      },
+      {
+        "start_ms": 1840,
+        "end_ms": 2800,
+        "text": "自己紹介。"
+      },
+      {
+        "start_ms": 3080,
+        "end_ms": 4440,
+        "text": "若松アロルです。"
+      },
+      {
+        "start_ms": 4800,
+        "end_ms": 5040,
+        "text": "はい。"
+      },
+      {
+        "start_ms": 5320,
+        "end_ms": 5640,
+        "text": "はい。"
+      },
+      {
+        "start_ms": 5960,
+        "end_ms": 7160,
+        "text": "全国ユーノです。"
+      },
+      {
+        "start_ms": 8040,
+        "end_ms": 8960,
+        "text": "割りしないでよ。"
+      },
+      {
+        "start_ms": 11440,
+        "end_ms": 12280,
+        "text": "割りしてやろうと思って。"
+      },
+      {
+        "start_ms": 12320,
+        "end_ms": 13680,
+        "text": "今最後ちょっと割りしてたでしょ。"
+      },
+      {
+        "start_ms": 15000,
+        "end_ms": 15600,
+        "text": "です。"
+      },
+      {
+        "start_ms": 17800,
+        "end_ms": 18160,
+        "text": "うん。"
+      },
+      {
+        "start_ms": 18840,
+        "end_ms": 21320,
+        "text": "今日は、あの、似てるだって。"
+      },
+      {
+        "start_ms": 21680,
+        "end_ms": 22040,
+        "text": "今の。"
+      },
+      {
+        "start_ms": 22240,
+        "end_ms": 22960,
+        "text": "似てた。"
+      },
+      {
+        "start_ms": 23840,
+        "end_ms": 25240,
+        "text": "いや、配信のね。"
+      },
+      {
+        "start_ms": 25920,
+        "end_ms": 28440,
+        "text": "わ、枠のね、主にね、ちょっとな。"
+      },
+      {
+        "start_ms": 28520,
+        "end_ms": 29240,
+        "text": "譲ってくれたの。"
+      },
+      {
+        "start_ms": 29400,
+        "end_ms": 30080,
+        "text": "そう、そう。"
+      },
+      {
+        "start_ms": 30240,
+        "end_ms": 31000,
+        "text": "そっちにね。"
+      },
+      {
+        "start_ms": 31800,
+        "end_ms": 33040,
+        "text": "譲った方がいいかなって。"
+      },
+      {
+        "start_ms": 34000,
+        "end_ms": 35120,
+        "text": "気遣いだったんだ。"
+      },
+      {
+        "start_ms": 35600,
+        "end_ms": 36680,
+        "text": "え、僕もどうだった。"
+      },
+      {
+        "start_ms": 36760,
+        "end_ms": 37920,
+        "text": "この前の真似。"
+      },
+      {
+        "start_ms": 38160,
+        "end_ms": 38560,
+        "text": "いたでしょ。"
+      },
+      {
+        "start_ms": 38680,
+        "end_ms": 39440,
+        "text": "あ、似てない、似てない。"
+      },
+      {
+        "start_ms": 39800,
+        "end_ms": 40560,
+        "text": "二度とやらないで。"
+      },
+      {
+        "start_ms": 40680,
+        "end_ms": 40840,
+        "text": "え."
+      },
+      {
+        "start_ms": 41000,
+        "end_ms": 41800,
+        "text": "なんで。"
+      },
+      {
+        "start_ms": 42200,
+        "end_ms": 43120,
+        "text": "なんで。"
+      },
+      {
+        "start_ms": 43440,
+        "end_ms": 46960,
+        "text": "いや、なんか聞いててさ、突然声低くなったなって思ったの。"
+      },
+      {
+        "start_ms": 47440,
+        "end_ms": 48880,
+        "text": "そしたら私の真似だった。"
+      },
+      {
+        "start_ms": 49160,
+        "end_ms": 50160,
+        "text": "そうだよ。"
+      },
+      {
+        "start_ms": 51690,
+        "end_ms": 53410,
+        "text": "マジかと思って笑い転げたよね。"
+      },
+      {
+        "start_ms": 53690,
+        "end_ms": 54770,
+        "text": "あ、笑い転げてた。"
+      },
+      {
+        "start_ms": 55010,
+        "end_ms": 55170,
+        "text": "うん。"
+      },
+      {
+        "start_ms": 55250,
+        "end_ms": 56050,
+        "text": "あ、ならよかった。"
+      },
+      {
+        "start_ms": 56250,
+        "end_ms": 57730,
+        "text": "全然似てないって言ってたから。"
+      },
+      {
+        "start_ms": 58570,
+        "end_ms": 59290,
+        "text": "似てないよ。"
+      }
+    ]
+  },
+  "music": {
+    "tracks": [
+      {
+        "id": "mu_0001",
+        "start_ms": 0,
+        "end_ms": 60000,
+        "bpm": 68.2,
+        "beats_ms": [
+          1040,
+          1480,
+          2360,
+          5320,
+          6000,
+          6180,
+          7040,
+          7700,
+          9660,
+          10520,
+          11320,
+          12180,
+          13060,
+          13900,
+          14800,
+          15620,
+          16480,
+          22560,
+          23340,
+          26740,
+          27620,
+          28500,
+          29360,
+          35320,
+          43480,
+          49440,
+          51640,
+          55060,
+          55900,
+          56780,
+          57660
+        ],
+        "downbeats_ms": [
+          1480,
+          2360,
+          5320,
+          6000,
+          7040,
+          12180,
+          13900,
+          15620,
+          22560,
+          23340,
+          27620,
+          29360,
+          35320,
+          43480,
+          51640,
+          55060,
+          56780
+        ],
+        "beat_positions": [
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          3,
+          4,
+          5,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2
+        ],
+        "sections": [],
+        "genre": null,
+        "mood": null,
+        "instruments": [],
+        "vocals": null,
+        "quality": "model",
+        "description": "Upbeat electronic/chiptune-style background music with a cheerful, game-like mood",
+        "provider": "beat_this-small0"
+      }
+    ],
+    "lyrics": []
+  },
+  "events": [
+    {
+      "start_ms": 7240,
+      "end_ms": 7960,
+      "label": "Laughter",
+      "conf": 0.581,
+      "salience": 0.759,
+      "source": "omni",
+      "precision": "refined-40ms",
+      "id": "ev_0001",
+      "omni_label": "laughter",
+      "label_zh": "笑声",
+      "omni_start_ms": 7000,
+      "omni_end_ms": 9000,
+      "refined_by": "pretrainedsed-beats-strong"
+    },
+    {
+      "start_ms": 8880,
+      "end_ms": 11200,
+      "label": "Laughter",
+      "conf": 0.628,
+      "salience": 0.759,
+      "source": "omni",
+      "precision": "refined-40ms",
+      "id": "ev_0002",
+      "omni_label": "laughter",
+      "label_zh": "笑声",
+      "omni_start_ms": 9000,
+      "omni_end_ms": 11000,
+      "refined_by": "pretrainedsed-beats-strong"
+    },
+    {
+      "start_ms": 13000,
+      "end_ms": 15000,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0003",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 19840,
+      "end_ms": 20000,
+      "label": "Laughter",
+      "conf": 0.501,
+      "salience": 0.759,
+      "source": "omni",
+      "precision": "refined-40ms",
+      "id": "ev_0004",
+      "omni_label": "laughter",
+      "label_zh": "笑声",
+      "omni_start_ms": 18000,
+      "omni_end_ms": 20000,
+      "refined_by": "pretrainedsed-beats-strong"
+    },
+    {
+      "start_ms": 21280,
+      "end_ms": 23680,
+      "label": "Laughter",
+      "conf": 0.463,
+      "salience": 0.759,
+      "source": "omni",
+      "precision": "refined-40ms",
+      "id": "ev_0005",
+      "omni_label": "laughter",
+      "label_zh": "笑声",
+      "omni_start_ms": 22000,
+      "omni_end_ms": 24000,
+      "refined_by": "pretrainedsed-beats-strong"
+    },
+    {
+      "start_ms": 25000,
+      "end_ms": 27000,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0006",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 38000,
+      "end_ms": 40000,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0007",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 43000,
+      "end_ms": 45000,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0008",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 45000,
+      "end_ms": 47000,
+      "label": "Laughter",
+      "conf": 0.7,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0009",
+      "omni_label": "laughter",
+      "label_zh": "笑声"
+    }
+  ],
+  "relations": [
+    {
+      "type": "over",
+      "from": "sp_0001",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0002",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0003",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0004",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0005",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0006",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0007",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0008",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0009",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0010",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0011",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0012",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0013",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0014",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0015",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0016",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0017",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0018",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0019",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0020",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0021",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0022",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0023",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0024",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0025",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0026",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0027",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0028",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0029",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0030",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0031",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0032",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0033",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0034",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0035",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0036",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0037",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0038",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0039",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "after",
+      "from": "ev_0001",
+      "to": "sp_0007",
+      "gap_ms": 80,
+      "conf": 0.7905
+    },
+    {
+      "type": "after",
+      "from": "ev_0003",
+      "to": "sp_0009",
+      "gap_ms": 720,
+      "conf": 0.85
+    },
+    {
+      "type": "after",
+      "from": "ev_0007",
+      "to": "sp_0024",
+      "gap_ms": 80,
+      "conf": 0.85
+    },
+    {
+      "type": "after",
+      "from": "ev_0008",
+      "to": "sp_0029",
+      "gap_ms": 1200,
+      "conf": 0.85
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 1480,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 5320,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 6000,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 7040,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 12180,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 13900,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 15620,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 22560,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 23340,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 29360,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 35320,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 43480,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 51640,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    },
+    {
+      "type": "cut_candidate",
+      "at_ms": 55060,
+      "reason": "downbeat near speech/event boundary",
+      "conf": 0.7
+    }
+  ],
+  "timeline": [
+    {
+      "start_ms": 120,
+      "end_ms": 1080,
+      "kind": "speech",
+      "text": "自己紹介か。",
+      "refs": [
+        "sp_0001"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 1080,
+      "end_ms": 1640,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 1840,
+      "end_ms": 2800,
+      "kind": "speech",
+      "text": "自己紹介。",
+      "refs": [
+        "sp_0003"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 2800,
+      "end_ms": 3080,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 3080,
+      "end_ms": 4440,
+      "kind": "speech",
+      "text": "若松アロルです。",
+      "refs": [
+        "sp_0004"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 4440,
+      "end_ms": 4800,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 4800,
+      "end_ms": 5040,
+      "kind": "speech",
+      "text": "はい。",
+      "refs": [
+        "sp_0005"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 5040,
+      "end_ms": 5320,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 5320,
+      "end_ms": 5640,
+      "kind": "speech",
+      "text": "はい。",
+      "refs": [
+        "sp_0006"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 5640,
+      "end_ms": 5960,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 5960,
+      "end_ms": 7160,
+      "kind": "speech",
+      "text": "全国ユーノです。",
+      "refs": [
+        "sp_0007"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 7240,
+      "end_ms": 7960,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0001"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 8040,
+      "end_ms": 8880,
+      "kind": "speech",
+      "text": "割りしないでよ。",
+      "refs": [
+        "sp_0008"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 8960,
+      "end_ms": 11200,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0002"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 11200,
+      "end_ms": 11440,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 11440,
+      "end_ms": 12280,
+      "kind": "speech",
+      "text": "割りしてやろうと思って。",
+      "refs": [
+        "sp_0009"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 12320,
+      "end_ms": 13000,
+      "kind": "speech",
+      "text": "今最後ちょっと割りしてたでしょ。",
+      "refs": [
+        "sp_0010"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 13000,
+      "end_ms": 13680,
+      "kind": "speech",
+      "text": "今最後ちょっと割りしてたでしょ。（同时：笑声）",
+      "refs": [
+        "sp_0010",
+        "ev_0003"
+      ],
+      "speaker": "S0",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 13680,
+      "end_ms": 15000,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0003"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 15000,
+      "end_ms": 15600,
+      "kind": "speech",
+      "text": "です。",
+      "refs": [
+        "sp_0011"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 15600,
+      "end_ms": 17800,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 17800,
+      "end_ms": 18160,
+      "kind": "speech",
+      "text": "うん。",
+      "refs": [
+        "sp_0012"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 18160,
+      "end_ms": 18840,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 18840,
+      "end_ms": 19840,
+      "kind": "speech",
+      "text": "今日は、あの、似てるだって。",
+      "refs": [
+        "sp_0013"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 20000,
+      "end_ms": 21280,
+      "kind": "speech",
+      "text": "今日は、あの、似てるだって。",
+      "refs": [
+        "sp_0013"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 21320,
+      "end_ms": 21680,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0005"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 21680,
+      "end_ms": 22040,
+      "kind": "speech",
+      "text": "今の。（同时：笑声）",
+      "refs": [
+        "sp_0014",
+        "ev_0005"
+      ],
+      "speaker": "S0",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 22040,
+      "end_ms": 22240,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0005"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 22240,
+      "end_ms": 22960,
+      "kind": "speech",
+      "text": "似てた。（同时：笑声）",
+      "refs": [
+        "sp_0015",
+        "ev_0005"
+      ],
+      "speaker": "S0",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 22960,
+      "end_ms": 23680,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0005"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 23840,
+      "end_ms": 25000,
+      "kind": "speech",
+      "text": "いや、配信のね。",
+      "refs": [
+        "sp_0016"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 25000,
+      "end_ms": 25240,
+      "kind": "speech",
+      "text": "いや、配信のね。（同时：笑声）",
+      "refs": [
+        "sp_0016",
+        "ev_0006"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 25240,
+      "end_ms": 25920,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0006"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 25920,
+      "end_ms": 27000,
+      "kind": "speech",
+      "text": "わ、枠のね、主にね、ちょっとな。（同时：笑声）",
+      "refs": [
+        "sp_0017",
+        "ev_0006"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 27000,
+      "end_ms": 28440,
+      "kind": "speech",
+      "text": "わ、枠のね、主にね、ちょっとな。",
+      "refs": [
+        "sp_0017"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 28520,
+      "end_ms": 29240,
+      "kind": "speech",
+      "text": "譲ってくれたの。",
+      "refs": [
+        "sp_0018"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 29400,
+      "end_ms": 30000,
+      "kind": "speech",
+      "text": "そう、そう。",
+      "refs": [
+        "sp_0019"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 30240,
+      "end_ms": 31000,
+      "kind": "speech",
+      "text": "そっちにね。",
+      "refs": [
+        "sp_0020"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 31000,
+      "end_ms": 31800,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 31800,
+      "end_ms": 33040,
+      "kind": "speech",
+      "text": "譲った方がいいかなって。",
+      "refs": [
+        "sp_0021"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 33040,
+      "end_ms": 34000,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 34000,
+      "end_ms": 35120,
+      "kind": "speech",
+      "text": "気遣いだったんだ。",
+      "refs": [
+        "sp_0022"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 35120,
+      "end_ms": 35600,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 35600,
+      "end_ms": 36680,
+      "kind": "speech",
+      "text": "え、僕もどうだった。",
+      "refs": [
+        "sp_0023"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 36760,
+      "end_ms": 37920,
+      "kind": "speech",
+      "text": "この前の真似。",
+      "refs": [
+        "sp_0024"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 38160,
+      "end_ms": 38560,
+      "kind": "speech",
+      "text": "いたでしょ。（同时：笑声）",
+      "refs": [
+        "sp_0025",
+        "ev_0007"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 38680,
+      "end_ms": 39440,
+      "kind": "speech",
+      "text": "あ、似てない、似てない。（同时：笑声）",
+      "refs": [
+        "sp_0026",
+        "ev_0007"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 39440,
+      "end_ms": 39800,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0007"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 39800,
+      "end_ms": 40000,
+      "kind": "speech",
+      "text": "二度とやらないで。（同时：笑声）",
+      "refs": [
+        "sp_0027",
+        "ev_0007"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 40000,
+      "end_ms": 40560,
+      "kind": "speech",
+      "text": "二度とやらないで。",
+      "refs": [
+        "sp_0027"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 41000,
+      "end_ms": 41800,
+      "kind": "speech",
+      "text": "なんで。",
+      "refs": [
+        "sp_0029"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 41800,
+      "end_ms": 42200,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 42200,
+      "end_ms": 43000,
+      "kind": "speech",
+      "text": "なんで。",
+      "refs": [
+        "sp_0030"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 43120,
+      "end_ms": 43440,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0008"
+      ],
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 43440,
+      "end_ms": 45000,
+      "kind": "speech",
+      "text": "いや、なんか聞いててさ、突然声低くなったなって思ったの。（同时：笑声）",
+      "refs": [
+        "sp_0031",
+        "ev_0008"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 45000,
+      "end_ms": 46960,
+      "kind": "speech",
+      "text": "いや、なんか聞いててさ、突然声低くなったなって思ったの。（同时：笑声）",
+      "refs": [
+        "sp_0031",
+        "ev_0009"
+      ],
+      "speaker": "S1",
+      "events": [
+        "笑声"
+      ],
+      "music": true
+    },
+    {
+      "start_ms": 47000,
+      "end_ms": 47440,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 47440,
+      "end_ms": 48880,
+      "kind": "speech",
+      "text": "そしたら私の真似だった。",
+      "refs": [
+        "sp_0032"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 48880,
+      "end_ms": 49160,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 49160,
+      "end_ms": 50000,
+      "kind": "speech",
+      "text": "そうだよ。",
+      "refs": [
+        "sp_0033"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 50160,
+      "end_ms": 51690,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 51690,
+      "end_ms": 53410,
+      "kind": "speech",
+      "text": "マジかと思って笑い転げたよね。",
+      "refs": [
+        "sp_0034"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 53410,
+      "end_ms": 53690,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 53690,
+      "end_ms": 54770,
+      "kind": "speech",
+      "text": "あ、笑い転げてた。",
+      "refs": [
+        "sp_0035"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 54770,
+      "end_ms": 55010,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 55250,
+      "end_ms": 56050,
+      "kind": "speech",
+      "text": "あ、ならよかった。",
+      "refs": [
+        "sp_0037"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 56050,
+      "end_ms": 56250,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 56250,
+      "end_ms": 57730,
+      "kind": "speech",
+      "text": "全然似てないって言ってたから。",
+      "refs": [
+        "sp_0038"
+      ],
+      "speaker": "S0",
+      "music": true
+    },
+    {
+      "start_ms": 57730,
+      "end_ms": 58570,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 58570,
+      "end_ms": 59290,
+      "kind": "speech",
+      "text": "似てないよ。",
+      "refs": [
+        "sp_0039"
+      ],
+      "speaker": "S1",
+      "music": true
+    },
+    {
+      "start_ms": 59290,
+      "end_ms": 60000,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    }
+  ],
+  "views": {
+    "one_line": "时长 1.0 分钟；39 段语音 / 2 位说话人；音乐 68.2 BPM；主要声音：笑声。",
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 60000,
+        "title": "自己紹介か。"
+      }
+    ],
+    "timeline_10s": [
+      "00:00.00–00:10.00 [人声] 自己紹介か。 / 自己紹介。 / 若松アロルです。 / はい。 / 全国ユーノです。 / 割りしないでよ。（同时：笑声）",
+      "00:10.00–00:20.00 [人声] 割りしてやろうと思って。 / 今最後ちょっと割りしてたでしょ。 / 今最後ちょっと割りしてたでしょ。（同时：笑声） / です。 / うん。 / 今日は、あの、似てるだって。（同时：笑声）",
+      "00:20.00–00:30.00 [人声] 今日は、あの、似てるだって。 / 今の。（同时：笑声） / 似てた。（同时：笑声） / いや、配信のね。 / いや、配信のね。（同时：笑声） / わ、枠のね、主にね、ちょっとな。（同时：笑声） / わ、枠のね、主にね、ちょっとな。 / 譲ってくれたの。 / そう、そう。（同时：笑声）",
+      "00:30.00–00:40.00 [人声] そっちにね。 / 譲った方がいいかなって。 / 気遣いだったんだ。 / え、僕もどうだった。 / この前の真似。 / いたでしょ。（同时：笑声） / あ、似てない、似てない。（同时：笑声） / 二度とやらないで。（同时：笑声）（同时：笑声）",
+      "00:40.00–00:50.00 [人声] 二度とやらないで。 / なんで。 / いや、なんか聞いててさ、突然声低くなったなって思ったの。（同时：笑声） / そしたら私の真似だった。 / そうだよ。（同时：笑声）",
+      "00:50.00–01:00.00 [人声] マジかと思って笑い転げたよね。 / あ、笑い転げてた。 / あ、ならよかった。 / 全然似てないって言ってたから。 / 似てないよ。"
+    ]
+  },
+  "warnings": [
+    "Omni timestamps are coarse (0.5–2s); use precise mode for word/beat timing",
+    "file <90s: speaker labels may collapse; treat as anonymous",
+    "refined 4 Omni events with 40ms AED"
+  ],
+  "provenance": {
+    "tool_version": "0.2.0",
+    "elapsed_s": 26.53
+  },
+  "intent": {
+    "requested": [
+      "transcript",
+      "events",
+      "beat"
+    ],
+    "skipped": []
+  }
+}

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.local/ear/audio-score-1.schema.json",
-  "title": "Ear Audio Score",
+  "$id": "https://raw.githubusercontent.com/HudsonHuang/agent-ear/main/schema/audio-score.schema.json",
+  "title": "agent-ear Audio Score",
   "type": "object",
   "required": [
     "schema",
@@ -21,12 +21,621 @@
       "const": "ear.score/1"
     },
     "source": {
+      "$ref": "#/$defs/source"
+    },
+    "capabilities": {
+      "$ref": "#/$defs/capabilities"
+    },
+    "intent": {
+      "$ref": "#/$defs/intent"
+    },
+    "global": {
+      "$ref": "#/$defs/global"
+    },
+    "speech": {
+      "$ref": "#/$defs/speech"
+    },
+    "music": {
+      "$ref": "#/$defs/music"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relation"
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/timeline"
+      }
+    },
+    "views": {
+      "$ref": "#/$defs/views"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    }
+  },
+  "$defs": {
+    "word": {
+      "type": "object",
+      "required": [
+        "t_ms",
+        "d_ms",
+        "w"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "t_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "d_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "w": {
+          "type": "string"
+        },
+        "conf": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "speechSegment": {
+      "type": "object",
+      "required": [
+        "id",
+        "start_ms",
+        "end_ms",
+        "speaker",
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "speaker": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "words": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "t_ms",
+              "d_ms",
+              "w"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "t_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "d_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "w": {
+                "type": "string"
+              },
+              "conf": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "conf": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "speaker_conf": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "turn": {
+      "type": "object",
+      "required": [
+        "speaker",
+        "start_ms",
+        "end_ms"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "speaker": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "overlap": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "id",
+        "start_ms",
+        "end_ms",
+        "label",
+        "conf"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "label": {
+          "type": "string"
+        },
+        "label_zh": {
+          "type": "string"
+        },
+        "conf": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "salience": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "uncertain": {
+          "type": "boolean",
+          "default": false
+        },
+        "source": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "string"
+        },
+        "refined_by": {
+          "type": "string"
+        },
+        "omni_start_ms": {
+          "type": "integer"
+        },
+        "omni_end_ms": {
+          "type": "integer"
+        },
+        "omni_label": {
+          "type": "string"
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": [
+        "start_ms",
+        "end_ms",
+        "label"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        },
+        "conf": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "musicTrack": {
+      "type": "object",
+      "required": [
+        "id",
+        "start_ms",
+        "end_ms"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "bpm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "beats_ms": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "downbeats_ms": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "beat_positions": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "start_ms",
+              "end_ms",
+              "label"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "start_ms": {
+                "type": "integer"
+              },
+              "end_ms": {
+                "type": "integer"
+              },
+              "label": {
+                "type": "string"
+              },
+              "conf": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "genre": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mood": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instruments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vocals": {
+          "type": [
+            "boolean",
+            "string",
+            "null"
+          ]
+        },
+        "quality": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "model",
+            "fallback",
+            "omni",
+            null
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        }
+      }
+    },
+    "lyric": {
+      "type": "object",
+      "required": [
+        "start_ms",
+        "end_ms",
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "words": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "t_ms",
+              "d_ms",
+              "w"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "t_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "d_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "w": {
+                "type": "string"
+              },
+              "conf": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "after",
+            "before",
+            "over",
+            "during",
+            "causes",
+            "at",
+            "repeat_of",
+            "contrast",
+            "cut_candidate"
+          ]
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "at_ms": {
+          "type": "integer"
+        },
+        "gap_ms": {
+          "type": "integer"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "conf": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "required": [
+        "start_ms",
+        "end_ms",
+        "kind",
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "speech",
+            "event",
+            "music",
+            "silence"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "speaker": {
+          "type": "string"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "music": {
+          "type": "boolean"
+        }
+      }
+    },
+    "chapter": {
+      "type": "object",
+      "required": [
+        "start_ms",
+        "end_ms",
+        "title"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "omniTranscript": {
+      "type": "object",
+      "required": [
+        "start_ms",
+        "end_ms",
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tool_version": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "elapsed_s": {
+          "type": "number"
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "omni": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "probe": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "source": {
       "type": "object",
       "required": [
         "path",
         "sha256",
         "duration_ms"
       ],
+      "additionalProperties": false,
       "properties": {
         "path": {
           "type": "string"
@@ -44,11 +653,17 @@
             "null"
           ]
         },
+        "video_duration_ms": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
         "pts_offset_ms": {
           "type": "integer",
           "default": 0
         },
-        "video_duration_ms": {
+        "trimmed_to_ms": {
           "type": [
             "integer",
             "null"
@@ -58,13 +673,13 @@
     },
     "capabilities": {
       "type": "object",
-      "description": "What actually ran. Absence of a capability must never be read as absence of that content.",
       "required": [
         "speech",
         "music",
         "events",
         "fusion"
       ],
+      "additionalProperties": false,
       "properties": {
         "speech": {
           "type": [
@@ -98,6 +713,64 @@
         },
         "fusion": {
           "type": "string"
+        },
+        "omni": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "aed": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "vad": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "beat": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "request": {
+          "type": "string"
+        },
+        "requested": {
+          "type": [
+            "array",
+            "string",
+            "null"
+          ]
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "skipped": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -106,6 +779,7 @@
       "required": [
         "summary"
       ],
+      "additionalProperties": false,
       "properties": {
         "summary": {
           "type": "string"
@@ -161,6 +835,7 @@
               "t_ms",
               "label"
             ],
+            "additionalProperties": false,
             "properties": {
               "t_ms": {
                 "type": "integer"
@@ -169,6 +844,22 @@
                 "type": "string"
               }
             }
+          }
+        },
+        "mode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "top_sounds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/topSound"
           }
         }
       }
@@ -179,6 +870,7 @@
         "segments",
         "turns"
       ],
+      "additionalProperties": false,
       "properties": {
         "segments": {
           "type": "array",
@@ -189,33 +881,19 @@
         "turns": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "speaker",
-              "start_ms",
-              "end_ms"
-            ],
-            "properties": {
-              "speaker": {
-                "type": "string"
-              },
-              "start_ms": {
-                "type": "integer"
-              },
-              "end_ms": {
-                "type": "integer"
-              },
-              "overlap": {
-                "type": "boolean",
-                "default": false
-              }
-            }
+            "$ref": "#/$defs/turn"
           }
         },
         "non_speech_vocal": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/event"
+          }
+        },
+        "omni_transcript": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/omniTranscript"
           }
         }
       }
@@ -225,219 +903,18 @@
       "required": [
         "tracks"
       ],
+      "additionalProperties": false,
       "properties": {
         "tracks": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "id",
-              "start_ms",
-              "end_ms"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "start_ms": {
-                "type": "integer"
-              },
-              "end_ms": {
-                "type": "integer"
-              },
-              "bpm": {
-                "type": [
-                  "number",
-                  "null"
-                ]
-              },
-              "beats_ms": {
-                "type": "array",
-                "items": {
-                  "type": "number"
-                }
-              },
-              "downbeats_ms": {
-                "type": "array",
-                "items": {
-                  "type": "number"
-                }
-              },
-              "beat_positions": {
-                "type": "array",
-                "items": {
-                  "type": "integer",
-                  "minimum": 1,
-                  "maximum": 12
-                }
-              },
-              "sections": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "start_ms",
-                    "end_ms",
-                    "label"
-                  ],
-                  "properties": {
-                    "start_ms": {
-                      "type": "integer"
-                    },
-                    "end_ms": {
-                      "type": "integer"
-                    },
-                    "label": {
-                      "type": "string"
-                    },
-                    "conf": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    }
-                  }
-                }
-              },
-              "genre": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "mood": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "instruments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "vocals": {
-                "type": [
-                  "boolean",
-                  "null"
-                ]
-              },
-              "quality": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "enum": [
-                  "model",
-                  "fallback",
-                  null,
-                  "omni"
-                ]
-              }
-            }
+            "$ref": "#/$defs/musicTrack"
           }
         },
         "lyrics": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "start_ms",
-              "end_ms",
-              "text"
-            ],
-            "properties": {
-              "start_ms": {
-                "type": "integer"
-              },
-              "end_ms": {
-                "type": "integer"
-              },
-              "text": {
-                "type": "string"
-              },
-              "words": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "t_ms",
-                    "d_ms",
-                    "w"
-                  ],
-                  "properties": {
-                    "t_ms": {
-                      "type": "integer"
-                    },
-                    "d_ms": {
-                      "type": "integer"
-                    },
-                    "w": {
-                      "type": "string"
-                    },
-                    "conf": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "events": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/event"
-      }
-    },
-    "relations": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "type"
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "after",
-              "before",
-              "over",
-              "during",
-              "causes",
-              "at",
-              "repeat_of",
-              "contrast",
-              "cut_candidate"
-            ]
-          },
-          "from": {
-            "type": "string"
-          },
-          "to": {
-            "type": "string"
-          },
-          "at_ms": {
-            "type": "integer"
-          },
-          "gap_ms": {
-            "type": "integer"
-          },
-          "reason": {
-            "type": "string"
-          },
-          "conf": {
-            "type": [
-              "number",
-              "null"
-            ]
+            "$ref": "#/$defs/lyric"
           }
         }
       }
@@ -447,6 +924,7 @@
       "required": [
         "one_line"
       ],
+      "additionalProperties": false,
       "properties": {
         "one_line": {
           "type": "string"
@@ -454,26 +932,7 @@
         "chapters": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "start_ms",
-              "end_ms",
-              "title"
-            ],
-            "properties": {
-              "start_ms": {
-                "type": "integer"
-              },
-              "end_ms": {
-                "type": "integer"
-              },
-              "title": {
-                "type": "string"
-              },
-              "summary": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/$defs/chapter"
           }
         },
         "timeline_10s": {
@@ -484,233 +943,36 @@
         }
       }
     },
-    "warnings": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "provenance": {
-      "type": "object",
-      "properties": {
-        "created_at": {
-          "type": "string"
+    "topSound": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/event"
         },
-        "tool_version": {
-          "type": "string"
-        },
-        "params": {
-          "type": "object"
-        }
-      }
-    },
-    "timeline": {
-      "type": "array",
-      "description": "Time-ordered integration: speech and event intervals on one clock.",
-      "items": {
-        "type": "object",
-        "required": [
-          "start_ms",
-          "end_ms",
-          "kind",
-          "text"
-        ],
-        "properties": {
-          "start_ms": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "end_ms": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "kind": {
-            "type": "string",
-            "enum": [
-              "speech",
-              "event",
-              "music",
-              "silence"
-            ]
-          },
-          "text": {
-            "type": "string"
-          },
-          "refs": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "speaker": {
-            "type": "string"
-          },
-          "events": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "music": {
-            "type": "boolean"
-          }
-        }
-      }
-    },
-    "intent": {
-      "type": "object",
-      "properties": {
-        "requested": {
-          "type": [
-            "array",
-            "string",
-            "null"
-          ]
-        },
-        "skipped": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    }
-  },
-  "$defs": {
-    "event": {
-      "type": "object",
-      "required": [
-        "id",
-        "start_ms",
-        "end_ms",
-        "label",
-        "conf"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "start_ms": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "end_ms": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "label": {
-          "type": "string"
-        },
-        "label_zh": {
-          "type": "string"
-        },
-        "conf": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 1
-        },
-        "salience": {
-          "type": [
-            "number",
-            "null"
+        {
+          "type": "object",
+          "required": [
+            "label"
           ],
-          "minimum": 0,
-          "maximum": 1
-        },
-        "uncertain": {
-          "type": "boolean",
-          "default": false
-        },
-        "source": {
-          "type": "string"
-        },
-        "precision": {
-          "type": "string"
-        },
-        "refined_by": {
-          "type": "string"
-        },
-        "omni_start_ms": {
-          "type": "integer"
-        },
-        "omni_end_ms": {
-          "type": "integer"
-        }
-      }
-    },
-    "speechSegment": {
-      "type": "object",
-      "required": [
-        "id",
-        "start_ms",
-        "end_ms",
-        "speaker",
-        "text"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "start_ms": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "end_ms": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "speaker": {
-          "type": "string"
-        },
-        "lang": {
-          "type": "string"
-        },
-        "text": {
-          "type": "string"
-        },
-        "words": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "t_ms",
-              "d_ms",
-              "w"
-            ],
-            "properties": {
-              "t_ms": {
-                "type": "integer",
-                "minimum": 0
-              },
-              "d_ms": {
-                "type": "integer",
-                "minimum": 0
-              },
-              "w": {
-                "type": "string"
-              },
-              "conf": {
-                "type": [
-                  "number",
-                  "null"
-                ]
-              }
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "label_zh": {
+              "type": "string"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "source": {
+              "type": "string"
             }
           }
-        },
-        "conf": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "speaker_conf": {
-          "type": [
-            "number",
-            "null"
-          ]
         }
-      }
+      ]
     }
   }
 }

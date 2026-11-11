@@ -1,0 +1,530 @@
+{
+  "schema": "ear.score/1",
+  "source": {
+    "path": "sample60.wav",
+    "sha256": "example",
+    "duration_ms": 60000,
+    "fps": null,
+    "pts_offset_ms": 0,
+    "trimmed_to_ms": null
+  },
+  "capabilities": {
+    "omni": "qwen3.8-omni-flash",
+    "speech": null,
+    "events": "omni",
+    "music": null,
+    "fusion": "rules-v1",
+    "mode": "basic"
+  },
+  "global": {
+    "summary": "Multiple instances of laughter occur throughout the conversation between two speakers, ranging from short chuckles to sustained laughing fits.",
+    "scene": "unknown",
+    "mood_curve": [],
+    "mode": "basic",
+    "duration_ms": 60000,
+    "speech_ratio": 0.0,
+    "music_ratio": 0.0,
+    "event_ratio": 0.27,
+    "speakers": 0,
+    "languages": [],
+    "top_sounds": [
+      {
+        "start_ms": 2500,
+        "end_ms": 3000,
+        "label": "Laughter",
+        "conf": 0.9,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0001",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 7300,
+        "end_ms": 11000,
+        "label": "Laughter",
+        "conf": 0.95,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0002",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 11500,
+        "end_ms": 12500,
+        "label": "Laughter",
+        "conf": 0.85,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0003",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 14000,
+        "end_ms": 17500,
+        "label": "Laughter",
+        "conf": 0.95,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0004",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 21500,
+        "end_ms": 23500,
+        "label": "Laughter",
+        "conf": 0.9,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0005",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 29500,
+        "end_ms": 31500,
+        "label": "Laughter",
+        "conf": 0.9,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0006",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 33000,
+        "end_ms": 35500,
+        "label": "Laughter",
+        "conf": 0.9,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0007",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 40500,
+        "end_ms": 41500,
+        "label": "Laughter",
+        "conf": 0.85,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0008",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      }
+    ]
+  },
+  "speech": {
+    "segments": [],
+    "turns": [],
+    "non_speech_vocal": [
+      {
+        "start_ms": 2500,
+        "end_ms": 3000,
+        "label": "Laughter",
+        "conf": 0.9,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0001",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 7300,
+        "end_ms": 11000,
+        "label": "Laughter",
+        "conf": 0.95,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0002",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 11500,
+        "end_ms": 12500,
+        "label": "Laughter",
+        "conf": 0.85,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0003",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 14000,
+        "end_ms": 17500,
+        "label": "Laughter",
+        "conf": 0.95,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0004",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 21500,
+        "end_ms": 23500,
+        "label": "Laughter",
+        "conf": 0.9,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0005",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 29500,
+        "end_ms": 31500,
+        "label": "Laughter",
+        "conf": 0.9,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0006",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 33000,
+        "end_ms": 35500,
+        "label": "Laughter",
+        "conf": 0.9,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0007",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      },
+      {
+        "start_ms": 40500,
+        "end_ms": 41500,
+        "label": "Laughter",
+        "conf": 0.85,
+        "salience": 0.7,
+        "source": "omni",
+        "precision": "omni-coarse",
+        "id": "ev_0008",
+        "omni_label": "Laughter",
+        "label_zh": "笑声"
+      }
+    ]
+  },
+  "music": {
+    "tracks": [],
+    "lyrics": []
+  },
+  "events": [
+    {
+      "start_ms": 2500,
+      "end_ms": 3000,
+      "label": "Laughter",
+      "conf": 0.9,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0001",
+      "omni_label": "Laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 7300,
+      "end_ms": 11000,
+      "label": "Laughter",
+      "conf": 0.95,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0002",
+      "omni_label": "Laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 11500,
+      "end_ms": 12500,
+      "label": "Laughter",
+      "conf": 0.85,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0003",
+      "omni_label": "Laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 14000,
+      "end_ms": 17500,
+      "label": "Laughter",
+      "conf": 0.95,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0004",
+      "omni_label": "Laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 21500,
+      "end_ms": 23500,
+      "label": "Laughter",
+      "conf": 0.9,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0005",
+      "omni_label": "Laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 29500,
+      "end_ms": 31500,
+      "label": "Laughter",
+      "conf": 0.9,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0006",
+      "omni_label": "Laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 33000,
+      "end_ms": 35500,
+      "label": "Laughter",
+      "conf": 0.9,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0007",
+      "omni_label": "Laughter",
+      "label_zh": "笑声"
+    },
+    {
+      "start_ms": 40500,
+      "end_ms": 41500,
+      "label": "Laughter",
+      "conf": 0.85,
+      "salience": 0.7,
+      "source": "omni",
+      "precision": "omni-coarse",
+      "id": "ev_0008",
+      "omni_label": "Laughter",
+      "label_zh": "笑声"
+    }
+  ],
+  "relations": [],
+  "timeline": [
+    {
+      "start_ms": 0,
+      "end_ms": 2500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 2500,
+      "end_ms": 3000,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0001"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 3000,
+      "end_ms": 7300,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 7300,
+      "end_ms": 11000,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0002"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 11000,
+      "end_ms": 11500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 11500,
+      "end_ms": 12500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0003"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 12500,
+      "end_ms": 14000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 14000,
+      "end_ms": 17500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0004"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 17500,
+      "end_ms": 21500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 21500,
+      "end_ms": 23500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0005"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 23500,
+      "end_ms": 29500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 29500,
+      "end_ms": 31500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0006"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 31500,
+      "end_ms": 33000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 33000,
+      "end_ms": 35500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0007"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 35500,
+      "end_ms": 40500,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    },
+    {
+      "start_ms": 40500,
+      "end_ms": 41500,
+      "kind": "event",
+      "text": "笑声",
+      "refs": [
+        "ev_0008"
+      ],
+      "events": [
+        "笑声"
+      ]
+    },
+    {
+      "start_ms": 41500,
+      "end_ms": 60000,
+      "kind": "silence",
+      "text": "静音/环境声",
+      "refs": []
+    }
+  ],
+  "views": {
+    "one_line": "时长 1.0 分钟；无语音；主要声音：笑声。",
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 60000,
+        "title": "笑声"
+      }
+    ],
+    "timeline_10s": [
+      "00:00.00–00:10.00 [事件] 笑声",
+      "00:10.00–00:20.00 [事件] 笑声",
+      "00:20.00–00:30.00 [事件] 笑声",
+      "00:30.00–00:40.00 [事件] 笑声",
+      "00:40.00–00:50.00 [事件] 笑声",
+      "00:50.00–01:00.00 [静音] 静音/环境声"
+    ]
+  },
+  "warnings": [
+    "Omni timestamps are coarse (0.5–2s); use precise mode for word/beat timing"
+  ],
+  "provenance": {
+    "tool_version": "0.2.0",
+    "elapsed_s": 7.73
+  },
+  "intent": {
+    "requested": [
+      "events"
+    ],
+    "labels": [
+      "Laughter"
+    ],
+    "request": "把视频里所有笑声都剪出来",
+    "skipped": []
+  }
+}
