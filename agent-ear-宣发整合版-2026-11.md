@@ -2,7 +2,7 @@
 
 > 这是对外宣发的**唯一事实源**。旧的 `ear-宣发准备包.md`、`ear-宣发策略-2026-11.md`、`AEO-策略-2026-11.md`、`agent-ear-干净安装验证-2026-11-11.md` 是过程材料；冲突时以本文为准。
 >
-> 当前发布：`agent-ear 0.2.9`（PyPI / GitHub）；npm DSH bundle 最新为 `0.2.9`。Windows + DSH 已实际安装测试，PR #1 已合并。
+> 当前发布：`agent-ear 0.2.9`（PyPI / GitHub）；npm DSH bundle 最新为 `0.2.8`（0.2.9 已提交，等 npm registry 同步）。Windows + DSH 已实际安装测试，PR #1 已合并。
 
 ---
 
@@ -164,7 +164,7 @@ agent-ear setup
 - 音频-only 项目都很小：`dsh-soundtry` / `dsh-soundcheck` 各 28★，且 Windows 为主、2.4GB 级；`dsh-music-analyze` 7★。
 - 视频项目的音频层很薄：只有 transcript / audio envelope / 可选 ASR；**非语音事件、音乐、beat、切点没人做**。
 - AI DAW 明确缺“发现自己改坏了”的闭环；这是 agent-ear 最好的新场景。
-- **agent-ear 已经是 npm bundle**：`agent-ear@0.2.9` 带 `dsh.bundle.patch`，`dsh plugin add agent-ear` 可注册 Skill；GitHub topics/description 已补。
+- **agent-ear 已经是 npm bundle**：`agent-ear@0.2.8` 带（0.2.9 待同步） `dsh.bundle.patch`，`dsh plugin add agent-ear` 可注册 Skill；GitHub topics/description 已补。
 - **分发缺口已从“做 wrapper”变成“送收录”**：dshfind/dshmarket 自动抓取（已打 topic，等同步）；awesome-dsh-plugin、dshbase、1024Store 需要主动提交。
 - 详见 [DSH 音频/视频生态调研](docs/dsh-audio-ecosystem-2026-11-12.md)。
 
