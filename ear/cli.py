@@ -413,6 +413,18 @@ def cmd_listen_omni(args) -> int:
         wav16 = work / "audio_16k.wav"
         if (exec_plan["asr"] or exec_plan["aed"]) and not wav16.is_file():
             media.extract_audio(src, wav16, sr=16000)
+        # Download independent local models in parallel before either step runs.
+        prefetch = []
+        if exec_plan["aed"]:
+            prefetch.append("psed_beats")
+        if exec_plan["beat"]:
+            prefetch.append("beat_this_small0")
+        if prefetch:
+            try:
+                from .models import ensure_models
+                ensure_models(prefetch)
+            except Exception as exc:
+                score["warnings"].append(f"model prefetch failed: {type(exc).__name__}: {str(exc)[:200]}")
         if exec_plan["asr"]:
             print("[ear] Qwen ASR (precise) ...", flush=True)
             try:

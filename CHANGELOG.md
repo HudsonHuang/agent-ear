@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.7 — 2026-11-12
+
+- Prefetch independent precise models (BEATs + Beat This!) in parallel before ASR/AED/beat steps; basic still downloads none.
+
 ## 0.2.6 — 2026-11-12
 
 - China-first install: domestic PyPI mirrors, USTC uv/Python mirrors, `hf-mirror.com` models, `gh-proxy.com` for BEATs.
