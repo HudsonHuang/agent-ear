@@ -2,7 +2,7 @@
 
 ## 0.2.3 — 2026-11-11
 
-- 修复 `agent-ear setup` 安装 skill 时重写 wrapper、却丢掉「CLI not found」提示的问题：生成的 `.sh` / `.cmd` / `.ps1` 现在先试安装时的绝对路径，再回退 PATH，最终打印安装指引并以 127 退出。
+- 修复 `agent-ear setup` 安装 skill 时重写 wrapper、却丢掉「CLI not found」提示的问题：0.2.2 只修了 clone/npx 直接使用的包内 wrapper，setup 生成的绝对路径版本仍会在 CLI 消失时裸失败。现在生成的 `.sh` / `.cmd` / `.ps1` 先试安装时的绝对路径，再回退 PATH，最终打印安装指引并以 127 退出。
 - Windows CI 修复：Unix wrapper 测试在 Windows 跳过，并新增跨平台的生成 wrapper 守卫断言，覆盖 setup 重写后的三个脚本。
 
 ## 0.2.2 — 2026-11-11

@@ -107,14 +107,51 @@ def test_install_skill_wrappers_keep_cli_guard(tmp_path, monkeypatch):
         assert "AGENT_EAR_BIN" in text, name
 
 
+def _fake_cli(path: Path, label: str) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(f'#!/bin/sh\necho {label} "$@"\nexit 0\n')
+    path.chmod(0o755)
+    return path
+
+
+def _run_generated(tmp_path: Path, binary: str, env: dict[str, str]):
+    dest = tmp_path / "skill"
+    install._write_wrappers(dest, binary)
+    return subprocess.run(
+        [BASH, str(dest / "scripts" / "agent-ear"), "doctor"],
+        capture_output=True, text=True, env=env, timeout=30,
+    )
+
+
+@pytest.mark.skipif(sys.platform == "win32", reason="Unix wrapper; Windows uses .cmd/.ps1")
+def test_generated_wrapper_prefers_existing_absolute_binary(tmp_path):
+    abs_cli = _fake_cli(tmp_path / "abs" / "agent-ear", "ABS-CLI")
+    path_cli = _fake_cli(tmp_path / "pathbin" / "agent-ear", "PATH-CLI")
+    proc = _run_generated(
+        tmp_path, str(abs_cli),
+        {"PATH": f"{path_cli.parent}:/usr/bin:/bin", "HOME": "/tmp"},
+    )
+    assert proc.returncode == 0
+    assert "ABS-CLI doctor" in proc.stdout
+    assert "PATH-CLI" not in proc.stdout
+
+
+@pytest.mark.skipif(sys.platform == "win32", reason="Unix wrapper; Windows uses .cmd/.ps1")
+def test_generated_wrapper_falls_back_to_path(tmp_path):
+    path_cli = _fake_cli(tmp_path / "pathbin" / "agent-ear", "PATH-CLI")
+    proc = _run_generated(
+        tmp_path, str(tmp_path / "missing" / "agent-ear"),
+        {"PATH": f"{path_cli.parent}:/usr/bin:/bin", "HOME": "/tmp"},
+    )
+    assert proc.returncode == 0
+    assert "PATH-CLI doctor" in proc.stdout
+
+
 @pytest.mark.skipif(sys.platform == "win32", reason="Unix wrapper; Windows uses .cmd/.ps1")
 def test_generated_wrapper_explains_missing_binary(tmp_path):
-    dest = tmp_path / "skill"
-    install._write_wrappers(dest, "/nonexistent/agent-ear")
-    proc = subprocess.run(
-        [BASH, str(dest / "scripts" / "agent-ear"), "doctor"],
-        capture_output=True, text=True,
-        env={"PATH": "/usr/bin:/bin", "HOME": "/tmp"}, timeout=30,
+    proc = _run_generated(
+        tmp_path, "/nonexistent/agent-ear",
+        {"PATH": "/usr/bin:/bin", "HOME": "/tmp"},
     )
     assert proc.returncode == 127
     assert "agent-ear CLI not found" in proc.stderr
