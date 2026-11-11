@@ -44,6 +44,16 @@ uv tool install "agent-ear"          # 只装 basic（推荐先这样）
 agent-ear setup
 ```
 
+### DSH（推荐：npm bundle）
+
+```bash
+dsh plugin add agent-ear
+uv tool install agent-ear   # CLI 仍需单独装
+agent-ear setup --target dsh
+```
+
+`agent-ear` 的 npm 包带 `dsh.bundle.patch`，安装后会通过 bundle 注册 Skill；这比手动复制 `<DSH_HOME>/skills/agent-ear` 更容易被 DSH 插件市场发现。
+
 ### Windows（原生，PowerShell）
 
 ```powershell
@@ -154,7 +164,7 @@ Windows 下对应 `%USERPROFILE%\.codex\skills\agent-ear` 等。
 
 Codex 重启后可用 `/skills` 查看；DSH 新会话可见；Claude 输入 `/agent-ear`。Skill 内部通过 `scripts/agent-ear`（Windows：`scripts\agent-ear.cmd`）调用 CLI。
 
-> DSH 的 Skill 与 Plugin 不是一回事：Skill 放目录即可，不需要 `dsh plugin add` 或 `dsh.bundle.patch`。
+> DSH 有两种装法：**`dsh plugin add agent-ear`（npm bundle，推荐）**，或手动把 Skill 放到 `<DSH_HOME>/skills/agent-ear`。前者会通过 `dsh.bundle.patch` 注册 Skill，也能进 DSH 插件市场；后者适合不想装 npm 包的用户。
 
 ## Doctor / 配置 / 卸载
 

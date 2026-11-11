@@ -96,6 +96,7 @@ uv tool install agent-ear
 agent-ear setup
 ```
 
+- **DSH 推荐：`dsh plugin add agent-ear`**（npm bundle 带 `dsh.bundle.patch`，会注册 Skill）；CLI 仍需 `uv tool install agent-ear`。
 - 先装 CLI，再装 Skill；skill-only 安装（`npx skills add` / clone）必须补 `uv tool install agent-ear`。
 - Setup 会问 Qwen Key（隐藏输入），选 Codex / DSH / Claude。
 - Windows 原生：`install.ps1`，PowerShell 5.1+，不需要 WSL。
@@ -156,18 +157,19 @@ agent-ear setup
 - 音频-only 项目都很小：`dsh-soundtry` / `dsh-soundcheck` 各 28★，且 Windows 为主、2.4GB 级；`dsh-music-analyze` 7★。
 - 视频项目的音频层很薄：只有 transcript / audio envelope / 可选 ASR；**非语音事件、音乐、beat、切点没人做**。
 - AI DAW 明确缺“发现自己改坏了”的闭环；这是 agent-ear 最好的新场景。
-- 最大的分发缺口：agent-ear 是 **Skill**，不在 DSH 插件市场；需要 `dsh-agent-ear` 薄插件（`dsh.bundle.patch`）才能进 dshmarket / awesome-dsh-plugin。
+- **agent-ear 已经是 npm bundle**：`agent-ear@0.2.4` 带 `dsh.bundle.patch`，`dsh plugin add agent-ear` 可注册 Skill；GitHub topics/description 已补。
+- **分发缺口已从“做 wrapper”变成“送收录”**：dshfind/dshmarket 自动抓取（已打 topic，等同步）；awesome-dsh-plugin、dshbase、1024Store 需要主动提交。
 - 详见 [DSH 音频/视频生态调研](docs/dsh-audio-ecosystem-2026-11-12.md)。
 
 ## 7. 渠道顺序（简要）
 
 1. **GitHub 本身**：README 前三屏、LICENSE、topic、release。
-2. **DSH 生态**：Skill 放 `<DSH_HOME>/skills`；不要投 `dsh plugin add` 渠道（除非另做 plugin）。
+2. **DSH 生态**：`dsh plugin add agent-ear`（npm bundle）；自动抓取站靠 `dsh-plugin` topic，主动收录站需要提交 awesome-dsh-plugin / dshbase / 1024Store。
 3. **skills.sh / Claude Code skill**：`skills/agent-ear/SKILL.md` 自动索引；Claude 用 `~/.claude/skills/agent-ear`。
 4. **技术长文 / 视频**：负结果叙事（“我测出它不需要耳朵，于是改卖切点”）。
 5. **海外**：Show HN / Reddit 放后面；网络和账号成本高。
 
-**不要**把 agent-ear 投到要求 `dsh.bundle.patch` 的 plugin 目录；它是 Skill，不是 plugin。
+**可以**投要求 `dsh.bundle.patch` 的 plugin 目录：npm 包已经满足；但描述要写清“bundle 注册的是 Skill + CLI 需要另装”。
 
 ---
 

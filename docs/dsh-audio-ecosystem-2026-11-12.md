@@ -34,6 +34,7 @@
 | [dsh-media-tools](https://github.com/averyjohnkucan-arch/dsh-media-tools) | 未发布 npm | 0 | 音频 plot/编辑 + 视频 | 重，Linux/CUDA 21GB Omni |
 | [ai-daw](https://github.com/heshengtao/ai-daw) | — | 5 | AI 原生 DAW + MCP/Skill | **没有感知闭环** |
 | [dsh-synthv-studio](https://github.com/Making-acid/dsh-synthv-studio) | — | 1 | SynthV 2 Pro 的 DSH 桥 | 无音频评估 |
+| **agent-ear** | 新发布 | 0 | 统一 audio-score + Skill + DSH bundle | **跨平台，语音+事件+音乐+切点** |
 
 ### 1.2 关键观察
 
@@ -203,21 +204,20 @@ AI DAW 自己承认缺“发现自己改坏了”的能力。闭环：
 
 ## 6. 触达更多人的路径
 
-### 6.1 必做：DSH plugin wrapper
+### 6.1 已做：npm bundle；下一步是“送收录”
 
-现在 agent-ear 是 **Skill**，不是 DSH **Plugin**：
+agent-ear 已经同时是：
 
-- Skill 放 `<DSH_HOME>/skills`，不会出现在 DSH 插件市场；
-- `awesome-dsh-plugin` / dshmarket / dshbase 要的是 `dsh.bundle.patch` 的 npm plugin；
-- 所以 skill-only 的 agent-ear 在 DSH 生态里**没有货架**。
+- PyPI CLI：`uv tool install agent-ear`
+- npm DSH bundle：`agent-ear@0.2.4`，带 `dsh.bundle.patch`，`dsh plugin add agent-ear` 会注册 Skill
+- 跨 Agent Skill：`skills/agent-ear/SKILL.md`
 
-建议做 `dsh-agent-ear` 薄插件：
+所以现在的缺口不是“做 plugin”，而是：
 
-- 注册工具：`audio_analyze`、`audio_find`、`audio_export`、`audio_compare`；
-- 内部调 `agent-ear` CLI；
-- 安装时检查/引导 CLI + Qwen Key；
-- 附带 skill / prompt section；
-- 发布 npm，进 dshmarket / awesome-dsh-plugin / dshbase。
+- **dshfind / dshmarket**：已打 `dsh-plugin` topic，等每日抓取；
+- **awesome-dsh-plugin**：主动 PR `data/plugins/HudsonHuang__agent-ear.yml`；
+- **dshbase**：主动提交 issue，跑 L1–L4 安装测试；
+- **1024Store**：主动 PR JSON。
 
 这是**最大的分发杠杆**：插件市场是 DSH 用户实际装东西的地方。
 
@@ -263,7 +263,7 @@ AI DAW 自己承认缺“发现自己改坏了”的能力。闭环：
 
 ## 8. 建议的下一步（按 ROI）
 
-1. **`dsh-agent-ear` 插件 wrapper**（分发 + 工具化）。
+1. **把 npm bundle 送进 awesome-dsh-plugin / dshbase / 1024Store**（分发；不是再写一个 wrapper）。
 2. **`export srt/edl` + `highlights`**（把时间轴变成结果）。
 3. **`compare` / `mixcheck`**（DAW 闭环）。
 4. **video-storyboard 音频适配**（借 12k/周流量）。
