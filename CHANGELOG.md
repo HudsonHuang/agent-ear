@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.6 — 2026-11-12
+
+- China-first install: domestic PyPI mirrors, USTC uv/Python mirrors, `hf-mirror.com` models, `gh-proxy.com` for BEATs.
+- Windows installer now downloads local ffmpeg/ffprobe first (gyan → gh-proxy BtbN → winget), installs uv via pip mirror/USTC zip, and avoids `--python 3.12` downloads.
+- `agent-ear setup --install-ffmpeg` auto-downloads a local Windows ffmpeg; `media`/`doctor` discover it without PATH edits.
+- Skill wrappers fall back to `uvx --from agent-ear agent-ear` when the CLI is missing.
+- Models are still on-demand: basic downloads none; `precise`/events download lazily; `--download-models` downloads in parallel.
+- PANNs 447-class labels are bundled (no Google Storage); `HF_ENDPOINT`/`EAR_HF_ENDPOINT` overrides supported.
+
 ## 0.2.5 — 2026-11-12
 
 - Add `agent-ear export --format srt|edl` for subtitles/SDH and CMX3600 EDL.

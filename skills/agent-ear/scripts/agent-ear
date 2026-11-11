@@ -4,6 +4,10 @@ if [[ -n "${AGENT_EAR_BIN:-}" ]]; then
   exec "$AGENT_EAR_BIN" "$@"
 fi
 if ! command -v agent-ear >/dev/null 2>&1; then
+  if command -v uvx >/dev/null 2>&1; then
+    echo "agent-ear CLI not installed; bootstrapping via uvx (cached after first run)..." >&2
+    exec uvx --from agent-ear agent-ear "$@"
+  fi
   cat >&2 <<'MSG'
 agent-ear CLI not found on PATH.
 This skill is a thin wrapper; install the CLI first:

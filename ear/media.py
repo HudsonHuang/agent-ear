@@ -6,11 +6,39 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
-FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
-FFPROBE = shutil.which("ffprobe") or "ffprobe"
+def _local_bin_dir() -> Path:
+    import os
+    import sys
+    if sys.platform.startswith("win"):
+        base = Path(os.environ.get("LOCALAPPDATA") or (Path.home() / "AppData/Local"))
+        return base / "agent-ear" / "ffmpeg" / "bin"
+    return Path.home() / ".local" / "share" / "agent-ear" / "ffmpeg" / "bin"
+
+
+def _resolve(name: str, env: str) -> str:
+    import os
+    explicit = os.environ.get(env)
+    if explicit and Path(explicit).is_file():
+        return explicit
+    for suffix in (".exe", "") if sys.platform.startswith("win") else ("",):
+        candidate = _local_bin_dir() / f"{name}{suffix}"
+        if candidate.is_file():
+            return str(candidate)
+    return shutil.which(name) or name
+
+
+def refresh(ffmpeg: str | None = None, ffprobe: str | None = None) -> None:
+    global FFMPEG, FFPROBE
+    FFMPEG = ffmpeg or _resolve("ffmpeg", "FFMPEG_BIN")
+    FFPROBE = ffprobe or _resolve("ffprobe", "FFPROBE_BIN")
+
+
+FFMPEG = _resolve("ffmpeg", "FFMPEG_BIN")
+FFPROBE = _resolve("ffprobe", "FFPROBE_BIN")
 
 
 class MediaError(RuntimeError):

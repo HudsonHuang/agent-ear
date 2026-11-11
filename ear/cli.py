@@ -812,6 +812,7 @@ def build_parser() -> argparse.ArgumentParser:
     st.add_argument("--non-interactive", action="store_true")
     st.add_argument("--with-local", action="store_true")
     st.add_argument("--download-models", action="store_true")
+    st.add_argument("--install-ffmpeg", action="store_true", help="Windows: download a local static ffmpeg")
     st.add_argument("--force", action="store_true")
     st.add_argument("--dry-run", action="store_true")
     st.set_defaults(func=cmd_setup)

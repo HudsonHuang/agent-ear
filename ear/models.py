@@ -16,6 +16,18 @@ import requests
 DEFAULT_DIR = Path.home() / ".cache" / "ear" / "models"
 PANNS_HOME = Path.home() / "panns_data"
 TORCH_CACHE = Path.home() / ".cache" / "torch" / "hub" / "checkpoints"
+BUNDLED_LABELS = Path(__file__).parent / "_data" / "models" / "class_labels_indices.csv"
+
+
+def hf_endpoint() -> str:
+    """China-first HF endpoint; override with HF_ENDPOINT/EAR_HF_ENDPOINT."""
+    import os
+    return (os.environ.get("EAR_HF_ENDPOINT") or os.environ.get("HF_ENDPOINT")
+            or "https://hf-mirror.com").rstrip("/")
+
+
+def _hf(path: str) -> str:
+    return f"{hf_endpoint()}/{path.lstrip('/')}"
 
 
 @dataclass(frozen=True)
@@ -32,25 +44,29 @@ MODELS: dict[str, ModelSpec] = {
     "psed_beats": ModelSpec(
         name="psed_beats",
         filename="BEATs_strong_1.pt",
-        url="https://github.com/fschmid56/PretrainedSED/releases/download/v0.0.1/BEATs_strong_1.pt",
+        url="https://gh-proxy.com/https://github.com/fschmid56/PretrainedSED/releases/download/v0.0.1/BEATs_strong_1.pt",
         size=364_091_999,
+        alt_urls=(
+            "https://github.com/fschmid56/PretrainedSED/releases/download/v0.0.1/BEATs_strong_1.pt",
+        ),
     ),
     "panns_clip": ModelSpec(
         name="panns_clip",
         filename="Cnn14_mAP=0.431.pth",
-        url="https://hf-mirror.com/thelou1s/panns-inference/resolve/main/Cnn14_mAP%3D0.431.pth",
+        url=_hf("thelou1s/panns-inference/resolve/main/Cnn14_mAP%3D0.431.pth"),
         size=327_428_481,
         alt_urls=(
             "https://huggingface.co/thelou1s/panns-inference/resolve/main/Cnn14_mAP%3D0.431.pth",
+            "https://hf-mirror.com/thelou1s/panns-inference/resolve/main/Cnn14_mAP%3D0.431.pth",
         ),
     ),
     "panns_labels": ModelSpec(
         name="panns_labels",
         filename="class_labels_indices.csv",
-        url="http://storage.googleapis.com/us_audioset/youtube_corpus/v1/csv/class_labels_indices.csv",
+        url="https://storage.googleapis.com/us_audioset/youtube_corpus/v1/csv/class_labels_indices.csv",
         size=14_675,
         alt_urls=(
-            "https://storage.googleapis.com/us_audioset/youtube_corpus/v1/csv/class_labels_indices.csv",
+            "https://hf-mirror.com/datasets/agkphysics/AudioSet/resolve/main/class_labels_indices.csv",
         ),
     ),
     "beat_this_small0": ModelSpec(
@@ -156,12 +172,31 @@ def ensure_model(name: str, *, check_only: bool = False) -> Path | None:
     return _download(spec, dest)
 
 
+def ensure_models(names: tuple[str, ...] | list[str]) -> dict[str, Path]:
+    """Download independent models concurrently (fewer round trips, faster)."""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    unique = list(dict.fromkeys(names))
+    out: dict[str, Path] = {}
+    with ThreadPoolExecutor(max_workers=min(4, max(1, len(unique)))) as pool:
+        futs = {pool.submit(ensure_model, n): n for n in unique}
+        for fut in as_completed(futs):
+            name = futs[fut]
+            path = fut.result()
+            if path is not None:
+                out[name] = path
+    return out
+
+
 def ensure_panns_labels() -> Path:
     """panns_inference imports labels from ~/panns_data at import time."""
     PANNS_HOME.mkdir(parents=True, exist_ok=True)
     dst = PANNS_HOME / "class_labels_indices.csv"
     spec = MODELS["panns_labels"]
     if _valid(dst, spec):
+        return dst
+    # Labels are tiny and stable; ship them so basic/local never touches Google.
+    if BUNDLED_LABELS.is_file() and _valid(BUNDLED_LABELS, spec):
+        dst.write_bytes(BUNDLED_LABELS.read_bytes())
         return dst
     src = ensure_model("panns_labels")
     assert src is not None
