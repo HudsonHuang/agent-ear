@@ -4,9 +4,11 @@ description: >-
   Give text-only agents an ear for offline audio/video: turn speech, sound events,
   and music into one timestamped audio-score.json plus a hierarchical hearing.md.
   Use when the user provides an audio/video file or asks to transcribe with timestamps,
-  find laughter/applause/sounds, cut to the beat, make SDH subtitles, or describe
-  what happens in a clip. Do not use for live translation/realtime streams, spatial
-  acoustics, voiceprint identity, or a complete musical score.
+  find laughter/applause/sounds, cut to the beat, get an exact beat grid / downbeats /
+  how far off a cut point is, make SDH subtitles, or describe what happens in a clip.
+  Do not use for spatial acoustics, voiceprint identity, or a complete musical score.
+  For live voice conversation, realtime streams, or barge-in, use the dsh-moss-live
+  plugin instead — this skill only handles recorded files.
 ---
 
 # agent-ear：给文本 Agent 一副离线耳朵
