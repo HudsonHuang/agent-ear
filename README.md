@@ -22,6 +22,9 @@
 
 ## 安装
 
+> **DeepSeek Harness 用户**：`dsh plugin add agent-ear` 会装成 bundle（`dsh.bundle.patch` 已在包内），
+> 技能会出现在 DSH 的技能目录里。CLI 仍需另外装：`uv tool install agent-ear`。
+
 > **先装 CLI，再装 skill。** `skills/agent-ear/scripts/agent-ear` 只是一个 6 行的薄包装，它 `exec` PATH 里的 `agent-ear` 命令。
 > 如果你只用 `npx skills add HudsonHuang/agent-ear`、或手动 clone 来装 skill，**必须另外执行 `uv tool install agent-ear`**，
 > 否则第一条命令就会报 `exec: agent-ear: not found`。`agent-ear doctor` 会用 `NO-CLI` 标出这种情况。
