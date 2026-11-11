@@ -3,4 +3,15 @@ set -euo pipefail
 if [[ -n "${AGENT_EAR_BIN:-}" ]]; then
   exec "$AGENT_EAR_BIN" "$@"
 fi
+if ! command -v agent-ear >/dev/null 2>&1; then
+  cat >&2 <<'MSG'
+agent-ear CLI not found on PATH.
+This skill is a thin wrapper; install the CLI first:
+  uv tool install agent-ear      # recommended
+  pipx install agent-ear
+  python3 -m pip install --user agent-ear
+Then re-run this script (or set AGENT_EAR_BIN to the binary path).
+MSG
+  exit 127
+fi
 exec agent-ear "$@"

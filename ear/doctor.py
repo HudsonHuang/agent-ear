@@ -66,7 +66,8 @@ def human(d: dict[str, Any]) -> str:
                                         for k, v in d["models"].items() if k != "error"))
     lines.append(f"aed: {d['aed']['default']} (reviewed {d['aed']['last_reviewed']})")
     for s in d["skills"]:
-        lines.append(f"skill {s['target']}: {'OK' if s['installed'] else '-'} {s['path']}")
+        label = install.HEALTH_LABEL.get(s.get("health", "missing"), s.get("health", "?"))
+        lines.append(f"skill {s['target']}: {label} {s['path']}")
     if "ok" in d["api"] or d["api"].get("checked"):
         lines.append(f"api: {'OK' if d['api'].get('ok') else 'FAIL'} "
                      f"{d['api'].get('status') or d['api'].get('error') or ''}".rstrip())

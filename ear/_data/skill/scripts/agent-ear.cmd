@@ -2,7 +2,16 @@
 setlocal
 if not "%AGENT_EAR_BIN%"=="" (
   "%AGENT_EAR_BIN%" %*
-) else (
-  agent-ear %*
+  exit /b %ERRORLEVEL%
 )
+where agent-ear >nul 2>nul
+if errorlevel 1 (
+  echo agent-ear CLI not found on PATH. 1>&2
+  echo This skill is a thin wrapper; install the CLI first: 1>&2
+  echo   uv tool install agent-ear 1>&2
+  echo   pipx install agent-ear 1>&2
+  echo   python -m pip install --user agent-ear 1>&2
+  exit /b 127
+)
+agent-ear %*
 exit /b %ERRORLEVEL%
