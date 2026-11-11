@@ -25,3 +25,19 @@ def test_package_version_matches_pyproject():
 def test_plugin_manifest_version_matches_pyproject():
     plugin = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
     assert plugin["version"] == _pyproject_version()
+
+
+def test_npm_manifest_version_matches_pyproject():
+    """The DSH bundle lives in package.json; it must ship the same version."""
+    pkg = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
+    assert pkg["version"] == _pyproject_version()
+
+
+def test_npm_manifest_declares_a_non_empty_bundle_patch():
+    """awesome-dsh-plugin rejects a DSH package without dsh.bundle.patch."""
+    pkg = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
+    patch = pkg.get("dsh", {}).get("bundle", {}).get("patch")
+    assert patch, "package.json needs dsh.bundle.patch"
+    target = ROOT / patch
+    assert target.is_file(), f"{patch} does not exist"
+    assert target.read_text(encoding="utf-8").strip(), f"{patch} is empty"
