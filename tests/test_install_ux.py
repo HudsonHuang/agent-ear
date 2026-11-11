@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import os
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -75,6 +76,7 @@ def _run_wrapper(env: dict[str, str]) -> subprocess.CompletedProcess:
     )
 
 
+@pytest.mark.skipif(sys.platform == "win32", reason="wrapper is a bash script; POSIX only")
 def test_wrapper_explains_missing_cli():
     proc = _run_wrapper({"PATH": "/usr/bin:/bin", "HOME": "/tmp"})
     assert proc.returncode == 127
@@ -82,6 +84,7 @@ def test_wrapper_explains_missing_cli():
     assert "uv tool install agent-ear" in proc.stderr
 
 
+@pytest.mark.skipif(sys.platform == "win32", reason="wrapper is a bash script; POSIX only")
 def test_wrapper_honours_agent_ear_bin(tmp_path):
     fake = tmp_path / "fake-agent-ear"
     fake.write_text("#!/bin/sh\necho FAKE-CLI \"$@\"\nexit 0\n")
