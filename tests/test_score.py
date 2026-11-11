@@ -38,3 +38,27 @@ def test_refine_keeps_omni_when_no_match():
     assert score.refine_events(s, [{"start_ms": 1000, "end_ms": 2000,
                                     "label": "Laughter", "conf": 0.9}]) == 0
     assert s["events"][0]["precision"] == "omni-coarse"
+
+
+def test_apply_beats_keeps_omni_bpm_when_tracker_has_none():
+    omni = {"provider": "m", "segments": [], "summary": "",
+            "events": [],
+            "music": {"present": True, "description": "chiptune", "bpm": 150}}
+    s = score.from_omni(omni, source_path="x", sha256="x", duration_ms=20000)
+
+    score.apply_beats(s, {
+        "bpm": None, "beats_ms": [100, 500], "downbeats_ms": [],
+        "beat_positions": [1, 2], "quality": "fallback", "provider": "librosa",
+    }, 20000)
+
+    track = s["music"]["tracks"][0]
+    assert track["bpm"] == 150
+    assert track["beats_ms"] == [100, 500]
+    assert track["quality"] == "fallback"
+
+    score.apply_beats(s, {
+        "bpm": 272.7, "beats_ms": [100, 320], "downbeats_ms": [100],
+        "beat_positions": [1, 2], "quality": "model", "provider": "beat_this-small0",
+    }, 20000)
+
+    assert track["bpm"] == 272.7
