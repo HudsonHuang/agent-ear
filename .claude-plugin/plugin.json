@@ -1,0 +1,9 @@
+{
+  "name": "agent-ear",
+  "version": "0.2.0",
+  "description": "Give text-only agents an offline ear: audio/video into a timestamped audio score.",
+  "author": {"name": "agent-ear contributors"},
+  "homepage": "https://github.com/HudsonHuang/agent-ear",
+  "license": "MIT",
+  "skills": "./skills/agent-ear"
+}

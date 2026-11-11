@@ -1,0 +1,484 @@
+{
+  "schema": "ear.score/1",
+  "source": {
+    "path": "/Users/juju/Desktop/ear/samples/sample60.wav",
+    "sha256": "e1d806bb4384e82be87ea50364393e548b8d3fbdf898f92c7c1c5e29c325e1e2",
+    "duration_ms": 60000,
+    "fps": null,
+    "pts_offset_ms": 0,
+    "trimmed_to_ms": null
+  },
+  "capabilities": {
+    "fusion": "rules-v1",
+    "vad": "silero-vad",
+    "events": "panns-cnn14",
+    "speech": "vad-only",
+    "music": "beat_this-small0"
+  },
+  "global": {
+    "summary": "时长 1.0 分钟；11 段语音 / 说话人未知；音乐 68.2 BPM；主要声音：Hiccup。",
+    "duration_ms": 60000,
+    "speech_ratio": 1.0,
+    "music_ratio": 1.0,
+    "event_ratio": 0.0,
+    "speakers": 0,
+    "languages": [
+      "ja"
+    ],
+    "scene": "talk / vlog / interview",
+    "mood_curve": [],
+    "mode": "default"
+  },
+  "speech": {
+    "segments": [
+      {
+        "id": "sp_0001",
+        "start_ms": 36,
+        "end_ms": 4348,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0002",
+        "start_ms": 4708,
+        "end_ms": 5660,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0003",
+        "start_ms": 5924,
+        "end_ms": 7100,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0004",
+        "start_ms": 7908,
+        "end_ms": 10012,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0005",
+        "start_ms": 11396,
+        "end_ms": 15580,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0006",
+        "start_ms": 17252,
+        "end_ms": 18204,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0007",
+        "start_ms": 18788,
+        "end_ms": 23580,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0008",
+        "start_ms": 23812,
+        "end_ms": 25212,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0009",
+        "start_ms": 25796,
+        "end_ms": 27420,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0010",
+        "start_ms": 28036,
+        "end_ms": 35164,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      },
+      {
+        "id": "sp_0011",
+        "start_ms": 35492,
+        "end_ms": 60000,
+        "speaker": "S?",
+        "text": "",
+        "lang": "ja",
+        "conf": null,
+        "words": [],
+        "source": "vad"
+      }
+    ],
+    "turns": [
+      {
+        "speaker": "S?",
+        "start_ms": 36,
+        "end_ms": 7100,
+        "text": ""
+      },
+      {
+        "speaker": "S?",
+        "start_ms": 7908,
+        "end_ms": 10012,
+        "text": ""
+      },
+      {
+        "speaker": "S?",
+        "start_ms": 11396,
+        "end_ms": 15580,
+        "text": ""
+      },
+      {
+        "speaker": "S?",
+        "start_ms": 17252,
+        "end_ms": 27420,
+        "text": ""
+      },
+      {
+        "speaker": "S?",
+        "start_ms": 28036,
+        "end_ms": 60000,
+        "text": ""
+      }
+    ],
+    "non_speech_vocal": []
+  },
+  "music": {
+    "tracks": [
+      {
+        "id": "mu_0001",
+        "start_ms": 0,
+        "end_ms": 60000,
+        "bpm": 68.2,
+        "beats_ms": [
+          1040,
+          1480,
+          2360,
+          5320,
+          6000,
+          6180,
+          7040,
+          7700,
+          9660,
+          10520,
+          11320,
+          12180,
+          13060,
+          13900,
+          14800,
+          15620,
+          16480,
+          22560,
+          23340,
+          26740,
+          27620,
+          28500,
+          29360,
+          35320,
+          43480,
+          49440,
+          51640,
+          55060,
+          55900,
+          56780,
+          57660
+        ],
+        "downbeats_ms": [
+          1480,
+          2360,
+          5320,
+          6000,
+          7040,
+          12180,
+          13900,
+          15620,
+          22560,
+          23340,
+          27620,
+          29360,
+          35320,
+          43480,
+          51640,
+          55060,
+          56780
+        ],
+        "beat_positions": [
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          3,
+          4,
+          5,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2
+        ],
+        "sections": [],
+        "genre": null,
+        "mood": null,
+        "instruments": [],
+        "vocals": null,
+        "quality": "model",
+        "provider": "beat_this-small0"
+      }
+    ],
+    "lyrics": []
+  },
+  "events": [
+    {
+      "start_ms": 30000,
+      "end_ms": 40000,
+      "label": "Hiccup",
+      "label_zh": "Hiccup",
+      "conf": 0.255,
+      "salience": 0.255,
+      "source": "panns-cnn14-clip-window",
+      "id": "ev_0001"
+    }
+  ],
+  "relations": [
+    {
+      "type": "over",
+      "from": "sp_0001",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0002",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0003",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0004",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0005",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0006",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0007",
+      "to": "mu_0001",
+      "conf": 0.9
+    },
+    {
+      "type": "over",
+      "from": "sp_0008",
+      "to": "mu_0001",
+      "conf": 0.9
+    }
+  ],
+  "timeline": [
+    {
+      "start_ms": 36,
+      "end_ms": 4348,
+      "kind": "speech",
+      "text": "语音（未转写）",
+      "refs": [
+        "sp_0001"
+      ],
+      "speaker": "S?",
+      "music": true
+    },
+    {
+      "start_ms": 4348,
+      "end_ms": 4708,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 4708,
+      "end_ms": 5660,
+      "kind": "speech",
+      "text": "语音（未转写）",
+      "refs": [
+        "sp_0002"
+      ],
+      "speaker": "S?",
+      "music": true
+    },
+    {
+      "start_ms": 5660,
+      "end_ms": 5924,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 5924,
+      "end_ms": 7100,
+      "kind": "speech",
+      "text": "语音（未转写）",
+      "refs": [
+        "sp_0003"
+      ],
+      "speaker": "S?",
+      "music": true
+    },
+    {
+      "start_ms": 7100,
+      "end_ms": 7908,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    },
+    {
+      "start_ms": 7908,
+      "end_ms": 10000,
+      "kind": "speech",
+      "text": "语音（未转写）",
+      "refs": [
+        "sp_0004"
+      ],
+      "speaker": "S?",
+      "music": true
+    },
+    {
+      "start_ms": 10012,
+      "end_ms": 11396,
+      "kind": "music",
+      "text": "音乐 68.2 BPM",
+      "refs": [],
+      "music": true
+    }
+  ],
+  "views": {
+    "one_line": "时长 1.0 分钟；11 段语音 / 说话人未知；音乐 68.2 BPM；主要声音：Hiccup。",
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 60000,
+        "title": ""
+      }
+    ],
+    "timeline_10s": [
+      "00:00.04–00:04.35 [人声] 语音（未转写）",
+      "00:04.35–00:04.71 [音乐] 音乐 68.2 BPM",
+      "00:04.71–00:05.66 [人声] 语音（未转写）",
+      "00:05.66–00:05.92 [音乐] 音乐 68.2 BPM",
+      "00:05.92–00:07.10 [人声] 语音（未转写）",
+      "00:07.10–00:07.91 [音乐] 音乐 68.2 BPM",
+      "00:07.91–00:10.00 [人声] 语音（未转写）",
+      "00:10.01–00:11.40 [音乐] 音乐 68.2 BPM"
+    ]
+  },
+  "warnings": [
+    "ASR disabled by --no-asr",
+    "ASR unavailable/disabled; speech intervals come from VAD, no transcript",
+    "file <90s: speaker labels may collapse to one speaker; treat S0/S1 as anonymous"
+  ],
+  "provenance": {
+    "created_at": "2026-11-11T03:39:27.398279+00:00",
+    "tool_version": "0.1.0",
+    "elapsed_s": 4.24,
+    "params": {
+      "mode": "default",
+      "language": [
+        "ja"
+      ],
+      "speakers": null,
+      "min_speech_ratio": 0.05,
+      "min_music_ratio": 0.15,
+      "beat_model": "small0",
+      "max_seconds": null
+    },
+    "probe": {
+      "loudness": {
+        "available": true,
+        "integrated_lufs": -13.78,
+        "true_peak_db": 0.1,
+        "lra": 5.0,
+        "threshold": -24.22
+      },
+      "silence_count": 0
+    }
+  }
+}

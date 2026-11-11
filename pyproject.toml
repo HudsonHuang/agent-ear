@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-ear"
+version = "0.2.0"
+description = "Give text-only agents an offline ear: audio/video -> a time-indexed audio score."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "agent-ear contributors" }]
+keywords = ["audio", "agent", "skill", "transcription", "audio-tagging", "video-editing"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: Microsoft :: Windows",
+  "Topic :: Multimedia :: Sound/Audio :: Analysis",
+]
+dependencies = [
+  "numpy>=1.24",
+  "requests>=2.31",
+  "soundfile>=0.12",
+  "jsonschema>=4.0",
+]
+
+[project.optional-dependencies]
+local = [
+  "torch>=2.2",
+  "torchaudio>=2.2",
+  "beat-this>=0.1",
+  "panns-inference>=0.1",
+  "silero-vad>=5.0",
+  "librosa>=0.10",
+]
+dev = ["pytest>=8", "build>=1.0", "twine>=5"]
+
+[project.scripts]
+agent-ear = "ear.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/HudsonHuang/agent-ear"
+Repository = "https://github.com/HudsonHuang/agent-ear"
+Issues = "https://github.com/HudsonHuang/agent-ear/issues"
+
+[tool.setuptools.packages.find]
+include = ["ear*"]
+
+[tool.setuptools.package-data]
+ear = ["_data/**/*", "_vendor/**/*"]
+
+[tool.setuptools.exclude-package-data]
+ear = ["**/__pycache__/*", "**/*.pyc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,5 @@
+include LICENSE README.md pyproject.toml
+recursive-include skills *
+recursive-include ear/_data *
+recursive-include ear/_vendor *
+global-exclude __pycache__/* *.pyc
