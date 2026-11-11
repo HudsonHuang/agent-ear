@@ -99,6 +99,7 @@ $spec = if ($WithLocal) { "agent-ear[local]==0.2.1" } else { "agent-ear==0.2.1" 
 & $uv tool install --python 3.12 --force $spec
 if ($LASTEXITCODE -ne 0) { throw "uv tool install failed" }
 
+try { $toolBin = (& $uv tool dir --bin 2>$null); if ($toolBin) { Add-Path $toolBin } } catch {}
 $agent = Find-Exe "agent-ear"
 if (-not $agent) {
   $candidate = Join-Path $env:USERPROFILE ".local\bin\agent-ear.exe"
