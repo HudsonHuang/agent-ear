@@ -2,7 +2,7 @@
 
 给没有音频通道的文本 Agent 一副**离线耳朵**：把音频/视频编译成同一时间轴上的 `audio-score.json`，再整理成层级化、带时间戳的 `hearing.md`。任何文本模型都能读，不需要模型本身支持音频。
 
-> 状态：**v0.2.5**，PyPI + GitHub 已发布；basic（Omni 详细转录）与 precise（Omni 前置 + 按需精修）已实现。  
+> 状态：**v0.2.6**，PyPI + GitHub 已发布；basic（Omni 详细转录）与 precise（Omni 前置 + 按需精修）已实现。  
 > **强依赖：Qwen Omni 模型 API。** basic/ask/precise/music 都依赖 `qwen3.8-omni-flash`；没有 Omni API Key 和网络时，只有 `privacy` 本地降级可用。precise 还额外依赖 Qwen ASR。  
 > 边界：只做离线文件；不做 Live Translation、实时流、空间声学、声纹身份、完整音乐总谱。
 
@@ -54,28 +54,45 @@ agent-ear setup --target dsh
 
 `agent-ear` 的 npm 包带 `dsh.bundle.patch`，安装后会通过 bundle 注册 Skill；这比手动复制 `<DSH_HOME>/skills/agent-ear` 更容易被 DSH 插件市场发现。
 
-### Windows（原生，PowerShell）
-
-```powershell
-winget install Gyan.FFmpeg
-uv tool install agent-ear
-agent-ear setup
-```
-
-如果 GitHub 脚本可用：
+### Windows（原生，PowerShell，推荐一键）
 
 ```powershell
 irm https://raw.githubusercontent.com/HudsonHuang/agent-ear/main/install.ps1 | iex
 ```
 
-Windows 需要 `ffmpeg`/`ffprobe` 在 PATH；`uv tool install` 默认把 `agent-ear.exe` 放到 `%USERPROFILE%\.local\bin`。
+它会自动：
+
+1. 找/下 ffmpeg + ffprobe（优先 gyan 直连，失败走 `gh-proxy`，再失败才 winget）；
+2. 找/下 uv（pip 国内镜像 → USTC 二进制 → 官方安装器）；
+3. 用阿里云/清华 PyPI 镜像装 `agent-ear`；
+4. 只装 DSH Skill，**不下载任何模型**；
+5. 跑 `doctor`，告诉你还缺什么。
+
+不需要预装 Python/uv/ffmpeg。所有下载优先国内源；即使开了 VPN 也优先走国内镜像。
+
+手动安装也可以：
+
+```powershell
+uv tool install agent-ear
+agent-ear setup --install-ffmpeg
+```
+
+Windows 配置在 `%APPDATA%\agent-ear\config.json`；ffmpeg 本地版在 `%LOCALAPPDATA%\agent-ear\ffmpeg\bin`。
 Windows + DSH 已实际安装测试，PR #1 修复了 PowerShell BOM、`--api-key-stdin` 失败提示和 BPM 回退；Windows CI（3.10/3.12）通过。
+
+### 模型：按需下载，basic 不下载模型
+
+- **basic** 只调 Qwen Omni；安装时不下载 BEATs/Beat This!，第一次 `precise`/事件/beat 才下载。
+- 模型默认走 `hf-mirror.com`；可用 `HF_ENDPOINT` 或 `EAR_HF_ENDPOINT` 覆盖。
+- GitHub 模型资源（BEATs）优先走 `gh-proxy.com`，失败再直连。
+- PANNs 的 447 类标签已随包内置，不再访问 Google Storage。
+- 需要预下载时：`agent-ear setup --download-models`（并行下载）。
 
 ### 安装向导会问什么
 
 `agent-ear setup` 会：
 
-1. 检查 ffmpeg/ffprobe；
+1. 检查 ffmpeg/ffprobe；Windows 上可 `--install-ffmpeg` 自动下载；
 2. 询问 **Qwen API Key**（隐藏输入，不回显）；
 3. 可选自定义 base URL（默认 `https://dashscope.aliyuncs.com`）；
 4. 检查 Key；

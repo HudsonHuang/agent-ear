@@ -4,6 +4,11 @@ if ($env:AGENT_EAR_BIN) {
   exit $LASTEXITCODE
 }
 if (-not (Get-Command agent-ear -ErrorAction SilentlyContinue)) {
+  if (Get-Command uvx -ErrorAction SilentlyContinue) {
+    [Console]::Error.WriteLine("agent-ear CLI not installed; bootstrapping via uvx...")
+    uvx --from agent-ear agent-ear @args
+    exit $LASTEXITCODE
+  }
   @(
     "agent-ear CLI not found on PATH.",
     "This skill is a thin wrapper; install the CLI first:",

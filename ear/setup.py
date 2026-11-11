@@ -10,7 +10,7 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from . import config, doctor, install
+from . import config, doctor, ffmpeg_boot, install
 
 
 def _say(msg: str = "") -> None:
@@ -105,12 +105,27 @@ def run(args) -> int:
     _say(f"agent-ear setup  v{__import__('ear').__version__}")
     _say("basic 模式会把音频上传到阿里云 Qwen 做理解；privacy 模式不调用 API。")
     _say("")
-    if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
-        hint = ("winget install Gyan.FFmpeg" if sys.platform.startswith("win")
-                else "brew install ffmpeg" if sys.platform == "darwin"
-                else "sudo apt install ffmpeg")
-        _say(f"缺少 ffmpeg/ffprobe。请先安装：{hint}")
-        return 2
+    ff, fp = ffmpeg_boot.apply()
+    if not ff or not fp:
+        can_auto = sys.platform.startswith("win")
+        if can_auto and (getattr(args, "install_ffmpeg", False) or
+                         (not args.non_interactive and sys.stdin.isatty())):
+            raw = "y" if getattr(args, "install_ffmpeg", False) else input(
+                "未找到 ffmpeg/ffprobe，是否现在下载本地静态版（约 35–200MB）？[Y/n] ").strip().lower()
+            if raw in ("", "y", "yes"):
+                _say("下载 ffmpeg/ffprobe（优先国内可访问源）...")
+                try:
+                    ff, fp = ffmpeg_boot.install_windows()
+                    _say(f"ffmpeg: {ff}")
+                except Exception as exc:
+                    _say(f"自动安装失败：{exc}")
+        if not ff or not fp:
+            hint = ("运行 `agent-ear setup --install-ffmpeg`，或 "
+                    "winget install Gyan.FFmpeg" if sys.platform.startswith("win")
+                    else "brew install ffmpeg" if sys.platform == "darwin"
+                    else "sudo apt install ffmpeg")
+            _say(f"缺少 ffmpeg/ffprobe。请先安装：{hint}")
+            return 2
 
     key, base = _read_key(args)
     if not key:
@@ -153,10 +168,11 @@ def run(args) -> int:
             _say(f"local 依赖未安装（{', '.join(missing)}）。")
             _say('请运行：uv tool install "agent-ear[local]" --force')
     if args.download_models:
-        from .models import ensure_model
-        for name in ("psed_beats", "beat_this_small0"):
-            _say(f"下载模型 {name} ...")
-            ensure_model(name)
+        from .models import ensure_models
+        _say("并行下载按需模型（只在 --download-models / precise 时需要）...")
+        got = ensure_models(("psed_beats", "beat_this_small0"))
+        for name, path in got.items():
+            _say(f"  {name}: {path}")
         _say("模型下载完成")
 
     _say("")

@@ -22,10 +22,12 @@ def collect(*, check_api: bool = False, scope: str = "user",
         "version": __version__,
         "python": sys.version.split()[0],
         "platform": sys.platform,
-        "ffmpeg": {"path": shutil.which("ffmpeg") or media.FFMPEG,
-                   "found": bool(shutil.which("ffmpeg"))},
-        "ffprobe": {"path": shutil.which("ffprobe") or media.FFPROBE,
-                    "found": bool(shutil.which("ffprobe"))},
+        "ffmpeg": {"path": media.FFMPEG,
+                   "found": Path(media.FFMPEG).is_file() if Path(media.FFMPEG).is_absolute()
+                            else bool(shutil.which(media.FFMPEG))},
+        "ffprobe": {"path": media.FFPROBE,
+                    "found": Path(media.FFPROBE).is_file() if Path(media.FFPROBE).is_absolute()
+                             else bool(shutil.which(media.FFPROBE))},
         "config": {
             "path": str(config.config_path()),
             "exists": config.config_path().is_file(),
