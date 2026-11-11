@@ -1,0 +1,7 @@
+# agent-ear bundle patch (referenced by `dsh.bundle.patch` in package.json).
+#
+# The package is both the bundle and the plugin: it registers one skill provider,
+# so a single row is enough.
+- insert:
+    - id: agent-ear
+      name: agent-ear
