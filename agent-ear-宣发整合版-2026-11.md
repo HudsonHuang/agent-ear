@@ -150,7 +150,16 @@ agent-ear setup
 
 ---
 
-## 6. 渠道顺序（简要）
+## 6. 生态调研结论（2026-11-12）
+
+- DSH 里有量的音频相关项目：`dsh-video-storyboard`（npm **12,280/周**，521★）、`dsh-video-understand`（1,067/周）、`dsh-audio-tools`（827/周）、`dsh-video-lens`（660/周）。
+- 音频-only 项目都很小：`dsh-soundtry` / `dsh-soundcheck` 各 28★，且 Windows 为主、2.4GB 级；`dsh-music-analyze` 7★。
+- 视频项目的音频层很薄：只有 transcript / audio envelope / 可选 ASR；**非语音事件、音乐、beat、切点没人做**。
+- AI DAW 明确缺“发现自己改坏了”的闭环；这是 agent-ear 最好的新场景。
+- 最大的分发缺口：agent-ear 是 **Skill**，不在 DSH 插件市场；需要 `dsh-agent-ear` 薄插件（`dsh.bundle.patch`）才能进 dshmarket / awesome-dsh-plugin。
+- 详见 [DSH 音频/视频生态调研](docs/dsh-audio-ecosystem-2026-11-12.md)。
+
+## 7. 渠道顺序（简要）
 
 1. **GitHub 本身**：README 前三屏、LICENSE、topic、release。
 2. **DSH 生态**：Skill 放 `<DSH_HOME>/skills`；不要投 `dsh plugin add` 渠道（除非另做 plugin）。
@@ -162,7 +171,7 @@ agent-ear setup
 
 ---
 
-## 7. 发布前检查清单
+## 8. 发布前检查清单
 
 - [x] PyPI `agent-ear` 可安装
 - [x] GitHub repo / release
@@ -177,7 +186,7 @@ agent-ear setup
 
 ---
 
-## 8. 仍存在的问题
+## 9. 仍存在的问题
 
 - 1 小时 **precise** 未实测；只测过 5 分钟 precise。
 - 事件 refine 只覆盖可映射标签（主要是 Laughter）；开放标签仍是 `omni-coarse`。
@@ -187,7 +196,7 @@ agent-ear setup
 
 ---
 
-## 9. 结论
+## 10. 结论
 
 > **agent-ear 不跟 Omni 比“听懂”。**  
 > 它把“听懂”变成“能剪”：40ms 事件、词级时间、BPM、切点偏差。  

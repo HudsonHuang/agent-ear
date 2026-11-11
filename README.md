@@ -191,6 +191,7 @@ uv pip install --python .venv/bin/python -e ".[dev,local]"
 ## 文档
 
 - [Windows 原生支持](docs/windows.md)
+- [DSH 音频/视频生态调研](docs/dsh-audio-ecosystem-2026-11-12.md)
 - [输出 Schema](docs/output-schema.md)
 - [按请求动态选策略](docs/request-strategies.md)
 - [直接 ask vs 转录后 ask](docs/direct-vs-transcribe.md)
