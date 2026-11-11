@@ -7,7 +7,7 @@ agent-ear 的 CLI 是纯 Python，依赖 ffmpeg 和可选 PyTorch；**Windows 10
 ## 1. 推荐：一键安装
 
 ```powershell
-irm https://raw.githubusercontent.com/HudsonHuang/agent-ear/main/install.ps1 | iex
+irm https://gh-proxy.com/https://raw.githubusercontent.com/HudsonHuang/agent-ear/main/install.ps1 | iex
 ```
 
 不需要预装 Python/uv/ffmpeg。安装器会按顺序尝试：

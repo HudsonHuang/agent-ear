@@ -91,7 +91,13 @@
 
 ### 安装
 
+```powershell
+# Windows：一键（自动 ffmpeg/uv/国内 PyPI）
+irm https://gh-proxy.com/https://raw.githubusercontent.com/HudsonHuang/agent-ear/main/install.ps1 | iex
+```
+
 ```bash
+# macOS/Linux
 uv tool install agent-ear
 agent-ear setup
 ```
@@ -99,7 +105,8 @@ agent-ear setup
 - **DSH 推荐：`dsh plugin add agent-ear`**（npm bundle 带 `dsh.bundle.patch`，会注册 Skill）；CLI 仍需 `uv tool install agent-ear`。
 - 先装 CLI，再装 Skill；skill-only 安装（`npx skills add` / clone）必须补 `uv tool install agent-ear`。
 - Setup 会问 Qwen Key（隐藏输入），选 Codex / DSH / Claude。
-- Windows 原生：`install.ps1`，PowerShell 5.1+，不需要 WSL。
+- Windows 原生：`install.ps1`，PowerShell 5.1+，不需要 WSL；自动下 ffmpeg/uv，优先国内源。
+- basic 不下载模型；precise/events 首次用时从 hf-mirror/gh-proxy 下载，`--download-models` 可并行预取。
 - Windows 配置：`%APPDATA%\agent-ear\config.json`；Skill：`%USERPROFILE%\.dsh\skills\agent-ear`。
 
 ### Windows + DSH 实测发现（PR #1 已合并）

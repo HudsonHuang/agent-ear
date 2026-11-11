@@ -59,7 +59,7 @@ agent-ear setup --target dsh
 ### Windows（原生，PowerShell，推荐一键）
 
 ```powershell
-irm https://raw.githubusercontent.com/HudsonHuang/agent-ear/main/install.ps1 | iex
+irm https://gh-proxy.com/https://raw.githubusercontent.com/HudsonHuang/agent-ear/main/install.ps1 | iex
 ```
 
 它会自动：
