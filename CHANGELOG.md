@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.5 — 2026-11-12
+
+- Add `agent-ear export --format srt|edl` for subtitles/SDH and CMX3600 EDL.
+- Add `agent-ear highlights --top N --by Laughter,Applause` with JSON/Markdown/EDL output.
+- Add `agent-ear mixcheck` (LUFS/true peak/LRA/clipping/bands) and `agent-ear compare` for DAW/audio-generation feedback loops.
+- Add `docs/editing-exports.md`; update README/SKILL with editing commands.
+
 ## 0.2.4 — 2026-11-11
 
 - 修复 `setup --api-key-stdin` 在 Windows PowerShell 5.1 下的 BOM 问题：管道传入的 Key 可能带 `U+FEFF`（以及零宽空格等复制残留），现在会先清理再校验/保存。

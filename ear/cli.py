@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from . import __version__, aed_psed, aed_registry, beats, config, context, doctor as doctor_mod, events_panns, fuse, install, media, omni, probe, render, requests as request_plan, routing, setup as setup_mod, text_llm
+from . import __version__, aed_psed, aed_registry, beats, config, context, doctor as doctor_mod, editing, events_panns, fuse, install, media, mix, omni, probe, render, requests as request_plan, routing, setup as setup_mod, text_llm
 from . import score as score_mod
 from .asr_qwen import QwenAsrError, transcribe as qwen_transcribe
 
@@ -512,6 +512,79 @@ def cmd_ask(args) -> int:
         (out / "ask.json").write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")
     return 0
 
+def _labels(raw: str | None) -> list[str] | None:
+    return [x.strip() for x in (raw or "").split(",") if x.strip()] or None
+
+
+def cmd_export(args) -> int:
+    score, sp = editing.load_score(args.score)
+    out = Path(args.out).expanduser() if args.out else sp.parent / ("captions.srt" if args.format == "srt" else "timeline.edl")
+    if args.format == "srt":
+        text = editing.srt(score, sdh=not args.no_sdh, speaker=args.speaker)
+    elif args.format == "edl":
+        text = editing.edl(score, labels=_labels(args.labels), fps=args.fps,
+                           pad_before=args.pad_before, pad_after=args.pad_after)
+    else:
+        raise SystemExit(f"unsupported export format: {args.format}")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text, encoding="utf-8")
+    print(out)
+    return 0
+
+
+def cmd_highlights(args) -> int:
+    score, sp = editing.load_score(args.score)
+    items = editing.highlights(score, top=args.top, by=_labels(args.by),
+                               pad_before=args.pad_before, pad_after=args.pad_after,
+                               min_gap=args.min_gap)
+    if not items:
+        raise SystemExit("no matching highlights")
+    out = Path(args.out).expanduser() if args.out else sp.parent / f"highlights.{args.format}"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    if args.format == "json":
+        payload = {"source": score.get("source", {}), "highlights": items}
+        out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    elif args.format == "md":
+        out.write_text(editing.highlights_md(score, items), encoding="utf-8")
+    elif args.format == "edl":
+        pseudo = {"source": score.get("source", {}),
+                  "events": [{"id": f"hl_{x['rank']}", "start_ms": x["start_ms"],
+                              "end_ms": x["end_ms"], "label": x["label"],
+                              "conf": x["score"]} for x in items]}
+        out.write_text(editing.edl(pseudo, fps=args.fps, title="agent-ear highlights"), encoding="utf-8")
+    print(out)
+    for x in items:
+        print(f"{x['rank']}. {x['start_ms']}–{x['end_ms']} {x['label']} ({x['score']})")
+    return 0
+
+
+def cmd_mixcheck(args) -> int:
+    d = mix.analyze(Path(args.input).expanduser())
+    if args.json:
+        print(json.dumps(d, ensure_ascii=False, indent=2))
+    else:
+        print(f"{d['path']}: {d['duration_s']}s  LUFS={d['lufs']}  TP={d['true_peak_db']}  "
+              f"peak={d['peak_dbfs']}  crest={d['crest_db']}  clipping={d['clipping_samples']}")
+        for k, v in d["bands_pct"].items():
+            print(f"  {k}: {v['pct']}% ({v['db']} dB)")
+        for w in d["warnings"]:
+            print("  ! " + w)
+    return 0
+
+
+def cmd_compare(args) -> int:
+    d = mix.compare(Path(args.a).expanduser(), Path(args.b).expanduser())
+    if args.json:
+        print(json.dumps(d, ensure_ascii=False, indent=2))
+    else:
+        print("delta B - A:")
+        for k, v in d["delta_b_minus_a"].items():
+            print(f"  {k}: {v:+}")
+        for w in d["warnings"]:
+            print("  ! " + w)
+    return 0
+
+
 def cmd_probe(args) -> int:
     src = Path(args.input).expanduser().resolve()
     if not src.is_file():
@@ -683,6 +756,41 @@ def build_parser() -> argparse.ArgumentParser:
     dp.add_argument("path")
     dp.add_argument("--level", type=int, default=1)
     dp.set_defaults(func=cmd_digest)
+
+    ex = sub.add_parser("export", help="export SRT/EDL from a saved score")
+    ex.add_argument("score")
+    ex.add_argument("--format", choices=["srt", "edl"], default="srt")
+    ex.add_argument("--out")
+    ex.add_argument("--no-sdh", action="store_true")
+    ex.add_argument("--speaker", action="store_true")
+    ex.add_argument("--labels", help="EDL only: comma labels, e.g. Laughter,Applause")
+    ex.add_argument("--fps", type=float)
+    ex.add_argument("--pad-before", type=int, default=0)
+    ex.add_argument("--pad-after", type=int, default=0)
+    ex.set_defaults(func=cmd_export)
+
+    hl = sub.add_parser("highlights", help="rank events into highlight clips")
+    hl.add_argument("score")
+    hl.add_argument("--top", type=int, default=5)
+    hl.add_argument("--by", help="comma labels, e.g. Laughter,Applause")
+    hl.add_argument("--pad-before", type=int, default=300)
+    hl.add_argument("--pad-after", type=int, default=500)
+    hl.add_argument("--min-gap", type=int, default=400)
+    hl.add_argument("--format", choices=["json", "md", "edl"], default="json")
+    hl.add_argument("--out")
+    hl.add_argument("--fps", type=float)
+    hl.set_defaults(func=cmd_highlights)
+
+    mx = sub.add_parser("mixcheck", help="local LUFS/true-peak/clipping/band report")
+    mx.add_argument("input")
+    mx.add_argument("--json", action="store_true")
+    mx.set_defaults(func=cmd_mixcheck)
+
+    cmp = sub.add_parser("compare", help="compare two audio renders for DAW feedback")
+    cmp.add_argument("a")
+    cmp.add_argument("b")
+    cmp.add_argument("--json", action="store_true")
+    cmp.set_defaults(func=cmd_compare)
 
     doc = sub.add_parser("doctor", help="check dependencies/config/skills")
     doc.add_argument("--env-file")

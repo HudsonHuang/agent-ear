@@ -100,6 +100,28 @@ agent-ear setup --target codex  # 只装 Codex Skill
 `--request` 会把自然语言映射为 intent/labels/needs，并写进 `audio-score.intent`。
 没有具体需求时**不要**用 targeted；默认 basic 详细转录，避免漏掉用户没说的内容。
 
+## 剪辑/DAW 输出
+
+```bash
+# 字幕（默认带 SDH 非语音提示）
+./scripts/agent-ear export .ear/my-video --format srt
+
+# EDL：只导出笑声/掌声片段
+./scripts/agent-ear export .ear/my-video --format edl --labels Laughter,Applause
+
+# 高光候选
+./scripts/agent-ear highlights .ear/my-video --top 5 --by Laughter --format edl
+
+# DAW 自检/对比（不调 Qwen）
+./scripts/agent-ear mixcheck render.wav --json
+./scripts/agent-ear compare before.wav after.wav --json
+```
+
+- SRT 精度取决于 basic/precise；
+- EDL 用 `source.fps`，没有则 30；
+- highlights 是候选，最终要复核；
+- compare 是测量，不判断“好不好听”。
+
 ## 输出怎么读
 
 ```text
