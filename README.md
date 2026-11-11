@@ -2,11 +2,23 @@
 
 给没有音频通道的文本 Agent 一副**离线耳朵**：把音频/视频编译成同一时间轴上的 `audio-score.json`，再整理成层级化、带时间戳的 `hearing.md`。任何文本模型都能读，不需要模型本身支持音频。
 
-> 状态：basic（Omni 详细转录）与 precise（Omni 前置 + 按需精修）已实现。  
+> 状态：**v0.2.4**，PyPI + GitHub 已发布；basic（Omni 详细转录）与 precise（Omni 前置 + 按需精修）已实现。  
 > **强依赖：Qwen Omni 模型 API。** basic/ask/precise/music 都依赖 `qwen3.8-omni-flash`；没有 Omni API Key 和网络时，只有 `privacy` 本地降级可用。precise 还额外依赖 Qwen ASR。  
 > 边界：只做离线文件；不做 Live Translation、实时流、空间声学、声纹身份、完整音乐总谱。
 
 > **这不是“可选云增强”。** Omni 是基础模式的必需前置；`privacy` 是唯一不调用 Qwen 的模式（MOSS 仍未实现）。
+
+> **配套：实时 vs 离线。** 这个项目处理**已经录好的文件**，给的是可下刀的时间戳。
+> 如果你要的是**正在说话时的实时对话、打断（barge-in）**，用 [dsh-moss-live](https://github.com/HudsonHuang/dsh-moss-live)——它管"说得出话"，这里管"切得准"。
+
+## 为什么不是直接问 Omni？
+
+**因为“听懂”和“能剪”不是一回事。**
+
+- 直接问 Omni：180 条 QA **87.2%**；agent-ear 的 QA 只有 58.9%——**它不是 QA 冠军**。
+- agent-ear 的增量是 **40ms 事件边界、词级时间、BPM/downbeat、切点偏差**；这些是“能直接对着剪”的东西。
+
+所以：**单问题、只要答案，直接问 Omni；要时间轴/批量/可审计，才用 agent-ear。** 详见 [直接 ask vs 转录后 ask](docs/direct-vs-transcribe.md)。
 
 ## 安装
 
@@ -44,6 +56,7 @@ irm https://raw.githubusercontent.com/HudsonHuang/agent-ear/main/install.ps1 | i
 ```
 
 Windows 需要 `ffmpeg`/`ffprobe` 在 PATH；`uv tool install` 默认把 `agent-ear.exe` 放到 `%USERPROFILE%\.local\bin`。
+Windows + DSH 已实际安装测试，PR #1 修复了 PowerShell BOM、`--api-key-stdin` 失败提示和 BPM 回退；Windows CI（3.10/3.12）通过。
 
 ### 安装向导会问什么
 
@@ -181,6 +194,7 @@ uv pip install --python .venv/bin/python -e ".[dev,local]"
 - [v2 架构](docs/architecture-v2.md)
 - [水位结果](docs/eval-results-2026-11-11.md)
 - [事件 refine](docs/refine-eval.md)
+- [宣发整合版](https://github.com/HudsonHuang/agent-ear/blob/main/agent-ear-宣发整合版-2026-11.md)
 - [AED 选型与敞口](docs/aed-selection.md)
 - [Roadmap](docs/roadmap.md)
 - [Schema 示例](schema/examples/)

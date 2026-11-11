@@ -1,10 +1,11 @@
 # Changelog
 
-## Unreleased
+## 0.2.4 — 2026-11-11
 
 - 修复 `setup --api-key-stdin` 在 Windows PowerShell 5.1 下的 BOM 问题：管道传入的 Key 可能带 `U+FEFF`（以及零宽空格等复制残留），现在会先清理再校验/保存。
 - 修复 `setup --api-key-stdin` 校验失败后仍调用 `input()` 的问题：stdin 已被 Key 占用时会抛 `EOFError`；现在直接返回 3，不交互。
 - 修复 beat tracker 返回空 BPM 时覆盖 Omni BPM 的问题：保留已有估算值，避免 precise/music 的 BPM 从数值退化为 `null`。
+- Windows + DSH 实际安装测试反馈（PR #1）：PowerShell BOM、失败不阻塞、BPM 回退；CI Windows 3.10/3.12 通过。
 
 ## 0.2.3 — 2026-11-11
 

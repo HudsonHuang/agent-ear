@@ -4,6 +4,7 @@
 
 ## 名称与安装
 
+- 当前版本：**0.2.4**（PyPI / GitHub）
 - 产品 / Skill / PyPI：**agent-ear**
 - CLI：`agent-ear`
 - 安装：
@@ -12,6 +13,7 @@
   agent-ear setup
   ```
 - Windows：`winget install Gyan.FFmpeg` + 上面两条；见 [Windows](windows.md)。
+- Windows + DSH 已实测；PR #1 修复 PowerShell BOM、stdin 失败提示、BPM 回退。
 - 支持：Codex、DSH、Claude Code。
 - 仓库：`github.com/HudsonHuang/agent-ear`（发布时确认 owner）。
 
