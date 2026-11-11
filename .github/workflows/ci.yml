@@ -15,6 +15,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
+      - name: Parse PowerShell installer
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $null = [scriptblock]::Create((Get-Content -Raw install.ps1))
+          Write-Host "install.ps1 parsed OK"
       - name: Install ffmpeg (Linux)
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
