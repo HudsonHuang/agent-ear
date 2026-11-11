@@ -59,7 +59,7 @@ def _download(url: str, dest: Path) -> None:
     import requests
     print(f"  downloading {url}", file=sys.stderr, flush=True)
     with requests.get(url, stream=True, timeout=(30, 1800),
-                      proxies=_proxies(), allow_redirects=True) as r:
+                      proxies=_proxies(url), allow_redirects=True) as r:
         r.raise_for_status()
         total = int(r.headers.get("content-length") or 0)
         done = 0
@@ -77,10 +77,15 @@ def _download(url: str, dest: Path) -> None:
                     last = now
 
 
-def _proxies() -> dict[str, str] | None:
-    raw = os.environ.get("EAR_DOWNLOAD_PROXY") or os.environ.get("HTTPS_PROXY") \
-        or os.environ.get("https_proxy") or os.environ.get("HTTP_PROXY") \
-        or os.environ.get("http_proxy")
+def _proxies(url: str = "") -> dict[str, str] | None:
+    explicit = os.environ.get("EAR_DOWNLOAD_PROXY")
+    if explicit:
+        return {"http": explicit, "https": explicit}
+    host = (url.split("/")[2] if "://" in url else "").lower()
+    if host in ("gh-proxy.com", "mirrors.ustc.edu.cn") or host.endswith(".gh-proxy.com"):
+        return None
+    raw = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy") \
+        or os.environ.get("HTTP_PROXY") or os.environ.get("http_proxy")
     return {"http": raw, "https": raw} if raw else None
 
 

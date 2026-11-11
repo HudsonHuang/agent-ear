@@ -95,10 +95,22 @@ def _sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def _proxies() -> dict[str, str] | None:
-    raw = os.environ.get("EAR_DOWNLOAD_PROXY") or os.environ.get("HTTPS_PROXY") \
-        or os.environ.get("https_proxy") or os.environ.get("HTTP_PROXY") \
-        or os.environ.get("http_proxy")
+DOMESTIC_HOSTS = ("hf-mirror.com", "gh-proxy.com", "mirrors.aliyun.com",
+                  "pypi.tuna.tsinghua.edu.cn", "mirrors.ustc.edu.cn",
+                  "dashscope.aliyuncs.com", "bailian.console.aliyun.com")
+
+
+def _proxies(url: str = "") -> dict[str, str] | None:
+    # Domestic mirrors must not be sent through a VPN/proxy: that is slower and
+    # sometimes breaks the mirror's TLS. Explicit EAR_DOWNLOAD_PROXY wins.
+    explicit = os.environ.get("EAR_DOWNLOAD_PROXY")
+    if explicit:
+        return {"http": explicit, "https": explicit}
+    host = (url.split("/")[2] if "://" in url else "").lower()
+    if any(host == h or host.endswith("." + h) for h in DOMESTIC_HOSTS):
+        return None
+    raw = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy") \
+        or os.environ.get("HTTP_PROXY") or os.environ.get("http_proxy")
     if not raw:
         return None
     return {"http": raw, "https": raw}
@@ -126,7 +138,7 @@ def _download(spec: ModelSpec, dest: Path, *, retries: int = 4) -> Path:
                     existing = 0
                 headers = {"Range": f"bytes={existing}-"} if existing else {}
                 with requests.get(url, headers=headers, stream=True, timeout=120,
-                                  allow_redirects=True, proxies=_proxies()) as r:
+                                  allow_redirects=True, proxies=_proxies(url)) as r:
                     if r.status_code == 416 and existing == spec.size:
                         break
                     if r.status_code not in (200, 206):

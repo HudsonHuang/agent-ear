@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.8 — 2026-11-12
+
+- Domestic mirrors (`hf-mirror.com`, `gh-proxy.com`, Aliyun/Tsinghua/UStC) bypass `HTTPS_PROXY` by default; explicit `EAR_DOWNLOAD_PROXY` still wins.
+- Installers add `NO_PROXY` for domestic hosts, so a VPN does not slow package/model downloads.
+
 ## 0.2.7 — 2026-11-12
 
 - Prefetch independent precise models (BEATs + Beat This!) in parallel before ASR/AED/beat steps; basic still downloads none.

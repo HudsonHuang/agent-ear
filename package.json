@@ -1,6 +1,6 @@
 {
   "name": "agent-ear",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "DeepSeek Harness / Claude skill: give text-only agents an ear for offline audio/video — precise beat grid, event boundaries and word-level timestamps.",
   "type": "module",
   "main": "dsh/index.js",

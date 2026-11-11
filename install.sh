@@ -7,6 +7,8 @@ PIP_MIRROR="${PIP_MIRROR:-https://mirrors.aliyun.com/pypi/simple}"
 PIP_MIRROR2="https://pypi.tuna.tsinghua.edu.cn/simple"
 PY_MIRROR="https://mirrors.ustc.edu.cn/github-release/astral-sh/python-build-standalone/"
 HF_MIRROR="${HF_ENDPOINT:-https://hf-mirror.com}"
+# Keep domestic mirrors direct even when a VPN proxy is exported.
+export NO_PROXY="mirrors.aliyun.com,pypi.tuna.tsinghua.edu.cn,mirrors.ustc.edu.cn,hf-mirror.com,gh-proxy.com,localhost,127.0.0.1${NO_PROXY:+,$NO_PROXY}"
 
 echo "agent-ear installer (China mirrors)"
 if ! command -v uv >/dev/null 2>&1; then

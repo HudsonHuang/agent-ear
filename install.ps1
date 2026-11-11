@@ -11,6 +11,8 @@ try { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::
 $PipMirror = "https://mirrors.aliyun.com/pypi/simple"
 $PipMirror2 = "https://pypi.tuna.tsinghua.edu.cn/simple"
 $HfMirror = "https://hf-mirror.com"
+$NoProxy = "mirrors.aliyun.com,pypi.tuna.tsinghua.edu.cn,mirrors.ustc.edu.cn,hf-mirror.com,gh-proxy.com,localhost,127.0.0.1"
+if ($env:NO_PROXY) { $env:NO_PROXY = "$NoProxy,$env:NO_PROXY" } else { $env:NO_PROXY = $NoProxy }
 $UvArch = if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") { "aarch64" } else { "x86_64" }
 $UvZip = "https://mirrors.ustc.edu.cn/github-release/astral-sh/uv/LatestRelease/uv-$UvArch-pc-windows-msvc.zip"
 $PyMirror = "https://mirrors.ustc.edu.cn/github-release/astral-sh/python-build-standalone/"

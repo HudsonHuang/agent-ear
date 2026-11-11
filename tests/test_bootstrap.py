@@ -33,3 +33,11 @@ def test_ffmpeg_local_bin_preferred(tmp_path, monkeypatch):
     got_ff, got_fp = ffmpeg_boot.find_bins()
     assert got_ff == str(ff)
     assert got_fp == str(fp)
+
+
+def test_domestic_mirror_bypasses_proxy(monkeypatch):
+    monkeypatch.setenv("HTTPS_PROXY", "http://127.0.0.1:7897")
+    monkeypatch.delenv("EAR_DOWNLOAD_PROXY", raising=False)
+    assert models._proxies("https://hf-mirror.com/repo/file") is None
+    assert models._proxies("https://gh-proxy.com/https://github.com/a/b") is None
+    assert models._proxies("https://cloud.cp.jku.at/file") is not None

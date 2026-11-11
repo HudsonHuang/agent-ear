@@ -2,7 +2,7 @@
 
 给没有音频通道的文本 Agent 一副**离线耳朵**：把音频/视频编译成同一时间轴上的 `audio-score.json`，再整理成层级化、带时间戳的 `hearing.md`。任何文本模型都能读，不需要模型本身支持音频。
 
-> 状态：**v0.2.7**，PyPI + GitHub 已发布；basic（Omni 详细转录）与 precise（Omni 前置 + 按需精修）已实现。  
+> 状态：**v0.2.8**，PyPI + GitHub 已发布；basic（Omni 详细转录）与 precise（Omni 前置 + 按需精修）已实现。  
 > **强依赖：Qwen Omni 模型 API。** basic/ask/precise/music 都依赖 `qwen3.8-omni-flash`；没有 Omni API Key 和网络时，只有 `privacy` 本地降级可用。precise 还额外依赖 Qwen ASR。  
 > 边界：只做离线文件；不做 Live Translation、实时流、空间声学、声纹身份、完整音乐总谱。
 
