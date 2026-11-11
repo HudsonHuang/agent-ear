@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from . import fuse
+from . import __version__, fuse
 from .events_panns import ZH
 from .media import fmt_ts
 
@@ -137,7 +137,7 @@ def from_omni(omni: dict[str, Any], *, source_path: str, sha256: str,
         "views": {"one_line": "", "chapters": [], "timeline_10s": []},
         "warnings": [],
         "provenance": {
-            "tool_version": "0.2.0",
+            "tool_version": __version__,
             "elapsed_s": round(elapsed_s, 2),
             "omni": {"usage": omni.get("usage") or {}, "wall_s": omni.get("wall_s"),
                      "chunks": omni.get("chunks"), "profile": omni.get("profile"),

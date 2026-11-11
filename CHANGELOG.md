@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.2 — 2026-11-11
+
+- 修复「只装 skill、未装 CLI」时的报错体验：skill 包装脚本（`.sh` / `.cmd` / `.ps1`）先探测 CLI，缺失时打印安装指引并以 127 退出，不再抛裸 `exec: agent-ear: not found`。
+- `setup --non-interactive --skip-key` 现在真正跳过 Key 配置，并提示之后可运行 `agent-ear setup` 补上。
+- `doctor` / `skill list` 新增 skill 健康状态（`OK` / `-` / `BROKEN` / `NO-CLI`），不再把缺少 CLI 的 skill 误报为正常。
+- README 与安装脚本统一为「先装 CLI，再装 skill」；新增 12 条 install UX 回归测试。
+
 ## 0.2.1 — 2026-11-11
 
 - Document **Qwen Omni API as a hard dependency** for basic/ask/precise/music.

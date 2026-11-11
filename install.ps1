@@ -95,7 +95,8 @@ Write-Host "uv: $uv"
 
 # 3) install agent-ear from PyPI
 Write-Step "installing agent-ear"
-$spec = if ($WithLocal) { "agent-ear[local]==0.2.1" } else { "agent-ear==0.2.1" }
+# Install the latest release; the version lives only in pyproject.toml.
+$spec = if ($WithLocal) { "agent-ear[local]" } else { "agent-ear" }
 & $uv tool install --python 3.12 --force $spec
 if ($LASTEXITCODE -ne 0) { throw "uv tool install failed" }
 
