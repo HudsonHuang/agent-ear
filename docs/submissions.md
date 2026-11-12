@@ -1,5 +1,7 @@
 # 收录状态（2026-11-12）
 
+> npm 发布延迟/ staged publishing 的处理见 [发布流程](release-process.md)。
+
 | 渠道 | 状态 | 链接 / 下一步 |
 |---|---|---|
 | 1024Store | ✅ 已合并 | https://github.com/imsai-sh/awesome-deepseek-harness-plugins/pull/918 |
